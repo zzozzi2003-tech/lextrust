@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f7f9fc" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>Lex Trust</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#050b18;--panel:#0b1428cc;--panel2:#0e1b35;--gold:#d6aa55;--gold2:#f2d28c;--txt:#f5f1e8;--muted:#9aa9bd;--line:#24324a;--ok:#49c68a;--danger:#ff6b6b}
+    *{box-sizing:border-box} body{margin:0;font-family:Cairo,system-ui;background:radial-gradient(circle at 20% 10%,#17284b 0,#071122 30%,#040916 75%);color:var(--txt);min-height:100vh;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:-20%;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(214,170,85,.10),transparent 24%);transition:.05s linear}
+    a{color:inherit;text-decoration:none} button,input,textarea,select{font:inherit}.hidden{display:none!important}
+    .shell{min-height:100vh;padding:22px}.glass{background:linear-gradient(180deg,rgba(16,29,56,.86),rgba(7,14,29,.9));border:1px solid rgba(214,170,85,.16);box-shadow:0 28px 70px rgba(0,0,0,.36);backdrop-filter:blur(18px);border-radius:24px}
+    .auth-wrap{min-height:calc(100vh - 44px);display:grid;place-items:center}.auth{width:min(1040px,100%);display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden}.brand-panel{padding:52px;min-height:650px;position:relative;background:linear-gradient(145deg,rgba(4,10,24,.2),rgba(19,34,66,.72));display:flex;flex-direction:column;justify-content:space-between}.brand-panel:after{content:"";position:absolute;inset:18px;border:1px solid rgba(214,170,85,.16);border-radius:18px;pointer-events:none}.logo{width:180px;border-radius:22px;box-shadow:0 22px 55px #0008;transform:perspective(900px) rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));transition:.12s}.brand-panel h1{font-size:44px;margin:18px 0 6px}.brand-panel p{color:var(--muted);max-width:520px;line-height:1.9}.gold{color:var(--gold2)}
+    .auth-form{padding:52px;background:rgba(3,8,18,.72);display:flex;flex-direction:column;justify-content:center}.tabs{display:flex;gap:8px;background:#071226;border:1px solid var(--line);padding:6px;border-radius:14px;margin-bottom:24px}.tabs button{flex:1;background:transparent;border:0;color:var(--muted);padding:11px;border-radius:10px;cursor:pointer}.tabs button.active{background:linear-gradient(135deg,#c79a48,#e8c779);color:#111827;font-weight:800}.field{display:grid;gap:7px;margin:12px 0}.field label{font-size:13px;color:#bac5d6}.field input,.field textarea,.field select{width:100%;background:#071225;border:1px solid #22314d;color:#fff;border-radius:13px;padding:13px 14px;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:#a9833f;box-shadow:0 0 0 3px #d6aa5518}.btn{border:0;border-radius:13px;padding:13px 17px;cursor:pointer;font-weight:800}.btn-gold{background:linear-gradient(135deg,#c79a48,#efd18d);color:#101521}.btn-dark{background:#101d35;color:#e8edf7;border:1px solid #283854}.btn-danger{background:#52222a;color:#ffd8db}.small{font-size:12px;color:var(--muted)}
+    .app{display:grid;grid-template-columns:260px 1fr;gap:18px}.side{padding:18px;position:sticky;top:18px;height:calc(100vh - 36px)}.mini-logo{display:flex;align-items:center;gap:12px;padding:8px 7px 20px;border-bottom:1px solid var(--line)}.mini-logo img{width:52px;height:52px;object-fit:cover;border-radius:14px}.nav{display:grid;gap:8px;margin-top:20px}.nav button{border:0;background:transparent;color:#b7c3d7;text-align:right;padding:12px 14px;border-radius:12px;cursor:pointer}.nav button.active,.nav button:hover{background:#12203a;color:#fff}.nav .owner-only{border:1px solid #5c47261f}.main{padding:2px}.topbar{display:flex;justify-content:space-between;align-items:center;padding:8px 4px 18px}.chip{background:#101c32;border:1px solid #233552;padding:8px 12px;border-radius:999px;color:#cbd5e4;font-size:13px}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{grid-column:span 4;padding:20px;min-height:150px;transform-style:preserve-3d;transition:transform .12s,border-color .2s}.card:hover{border-color:#765f33}.card h3{margin:0 0 6px}.metric{font-size:34px;font-weight:800;color:var(--gold2)}.wide{grid-column:span 8}.full{grid-column:1/-1}.case-list{display:grid;gap:10px}.case{background:#081326;border:1px solid #20304b;border-radius:14px;padding:14px;display:grid;grid-template-columns:1fr auto;gap:8px;cursor:pointer}.case:hover{border-color:#7b6338}.case strong{color:#f4d895}.case-actions{display:flex;align-items:center;gap:8px}.case-details-btn{white-space:nowrap;padding:9px 13px;border-radius:10px;border:1px solid #8d713c;background:linear-gradient(135deg,#1b2942,#101a2e);color:#f4d895;font-weight:800;cursor:pointer}.case-details-btn:hover{border-color:#d6aa55;background:#172742}.details-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}.detail-box{background:#071225;border:1px solid #22314d;border-radius:13px;padding:12px}.detail-box .label{font-size:11px;color:#91a1b8;margin-bottom:3px}.detail-box .value{font-weight:700;overflow-wrap:anywhere}.client-profile{margin:16px 0;padding:16px;border-radius:16px;background:linear-gradient(135deg,#0b1830,#081224);border:1px solid #4c3d24}.client-profile h4{margin:0 0 12px;color:#f2d28c}@media(max-width:700px){.details-grid{grid-template-columns:1fr}.case{grid-template-columns:1fr}.case-actions{justify-content:flex-start;flex-wrap:wrap}}.status{font-size:12px;padding:6px 9px;border-radius:999px;background:#142541;color:#b9c9dd;white-space:nowrap}.modal{position:fixed;inset:0;background:#020713cc;display:grid;place-items:center;padding:20px;z-index:50}.modal-box{width:min(720px,100%);max-height:88vh;overflow:auto;padding:22px}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:transparent;border:0;color:white;font-size:24px;cursor:pointer}.chat-fab{position:fixed;left:24px;bottom:24px;width:60px;height:60px;border-radius:50%;border:1px solid #d5af66;background:linear-gradient(145deg,#cf9f46,#f3d48e);color:#111827;font-size:24px;cursor:pointer;box-shadow:0 14px 36px #0008;z-index:30}.chat-panel{position:fixed;left:24px;bottom:95px;width:min(390px,calc(100vw - 48px));height:530px;z-index:35;padding:14px;display:flex;flex-direction:column}.messages{flex:1;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:8px}.msg{max-width:82%;padding:10px 12px;border-radius:14px;background:#13233f;align-self:flex-start}.msg.me{background:#7c6332;color:#fff;align-self:flex-end}.msg small{display:block;color:#b8c5d9;margin-top:3px}.chat-send{display:flex;gap:8px}.chat-send input{flex:1}.socials{display:flex;flex-wrap:wrap;gap:8px}.socials a{padding:9px 12px;border-radius:10px;background:#0e1b31;border:1px solid #263753;color:#d6dfed}.permission-grid{display:flex;flex-wrap:wrap;gap:8px}.permission-grid label{background:#0b1830;border:1px solid #263854;padding:9px 10px;border-radius:10px}.toast{position:fixed;top:24px;left:50%;transform:translateX(-50%);z-index:100;padding:12px 18px;border-radius:12px;background:#11213c;border:1px solid #30415f;box-shadow:0 18px 40px #0008}.toast.error{border-color:#71333a;color:#ffd9dd}
+    @media(max-width:900px){.auth{grid-template-columns:1fr}.brand-panel{min-height:auto;padding:28px}.auth-form{padding:28px}.app{grid-template-columns:1fr}.side{position:relative;height:auto;top:0}.nav{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.card,.wide,.full{grid-column:1}.topbar{align-items:flex-start;gap:10px;flex-direction:column}.shell{padding:12px}.chat-fab{left:14px;bottom:14px}.chat-panel{left:14px;bottom:84px;width:calc(100vw - 28px)}}
+  </style>
+
+<style id="lextrust-v23-light-theme">
+:root{--bg:#f4f7fb;--panel:#ffffff;--panel2:#f8fafc;--navy:#071a36;--navy2:#102c52;--gold:#c99639;--gold2:#e5b95b;--txt:#0c1d35;--muted:#69778a;--line:#dce4ee;--ok:#16835f;--danger:#b64450}
+html{background:#f4f7fb}body{background:linear-gradient(135deg,#fbfcfe 0%,#f3f7fb 42%,#edf3f9 100%);color:var(--txt)}
+body:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,150,57,.11),transparent 22%),linear-gradient(120deg,transparent 0 72%,rgba(7,26,54,.025) 72% 73%,transparent 73%);inset:0}
+.shell{padding:18px;position:relative}.glass{background:rgba(255,255,255,.94);border:1px solid rgba(7,26,54,.09);box-shadow:0 18px 48px rgba(14,35,64,.10);backdrop-filter:blur(18px);border-radius:22px}
+.auth{box-shadow:0 30px 90px rgba(8,27,55,.16)}.brand-panel{background:linear-gradient(145deg,#071a36,#0e2b50 72%,#17385e);color:#fff}.brand-panel:before{content:"مثلنا .. ثقتك أولاً";position:absolute;left:36px;bottom:34px;color:#f2d28c;font-weight:800;letter-spacing:.2px}.brand-panel:after{border-color:rgba(229,185,91,.35)}.brand-panel p{color:#d5dfeb}.logo{width:190px;border:1px solid rgba(229,185,91,.5);box-shadow:0 26px 60px rgba(0,0,0,.28)}.gold{color:#efc96f}.auth-form{background:#fff;color:var(--txt)}.tabs{background:#f3f6fa;border-color:#dde5ee}.tabs button{color:#68778b}.tabs button.active{background:linear-gradient(135deg,#0a2345,#12365e);color:#fff;box-shadow:0 9px 20px rgba(7,26,54,.18)}
+.field label{color:#52647a}.field input,.field textarea,.field select{background:#f9fbfd;border:1px solid #d7e0eb;color:#10223b}.field input:focus,.field textarea:focus,.field select:focus{border-color:#c99639;box-shadow:0 0 0 3px rgba(201,150,57,.12);background:#fff}.btn-gold{background:linear-gradient(135deg,#d4a548,#efc96d);color:#071a36;box-shadow:0 8px 18px rgba(201,150,57,.22)}.btn-dark{background:#092347;color:#fff;border-color:#092347}.btn-danger{background:#fff0f1;color:#a63241;border:1px solid #f3c7cc}.small{color:#738196}
+.app{grid-template-columns:276px 1fr;gap:18px;max-width:1900px;margin:auto}.side{background:linear-gradient(180deg,#071a36 0%,#0a2345 58%,#102c52 100%);border-color:rgba(229,185,91,.22);box-shadow:0 24px 60px rgba(7,26,54,.18);color:#fff}.mini-logo{border-bottom:1px solid rgba(255,255,255,.12);align-items:center}.mini-logo img{width:66px;height:66px;border:1px solid rgba(229,185,91,.5);box-shadow:0 8px 24px rgba(0,0,0,.22)}.mini-logo strong{color:#fff;font-size:17px}.mini-logo .small{color:#bfcadd;font-size:10px;line-height:1.6}.nav{gap:10px}.nav button{color:#d5deea;border:1px solid transparent;font-weight:600}.nav button.active,.nav button:hover{background:linear-gradient(135deg,rgba(229,185,91,.18),rgba(255,255,255,.08));color:#fff;border-color:rgba(229,185,91,.22);transform:translateX(-2px)}.nav .owner-only{border-color:rgba(229,185,91,.18)}
+.main{padding:4px 4px 30px}.topbar{padding:12px 12px 20px;margin-bottom:2px;border-bottom:1px solid #e8edf4}.topbar h2{color:#071a36;font-size:25px}.chip{background:#fff;border-color:#d7e0eb;color:#0b2548;box-shadow:0 6px 18px rgba(10,35,69,.06)}
+.card{background:#fff;border:1px solid #e0e7ef;box-shadow:0 12px 28px rgba(20,45,75,.07);min-height:148px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;right:0;top:0;width:4px;height:100%;background:linear-gradient(#e5b95b,#b98125);opacity:.75}.card:hover{border-color:#d4b16b;box-shadow:0 17px 36px rgba(20,45,75,.11)}.card h3{color:#0a2142}.metric{color:#c28d2b}.wide{grid-column:span 8}
+.case{background:#fff;border:1px solid #dce5ef;box-shadow:0 6px 15px rgba(11,35,69,.045);cursor:default}.case:hover{border-color:#d0ac63;box-shadow:0 9px 22px rgba(11,35,69,.08)}.case strong{color:#a87015}.status{background:#edf3f9;color:#24415f;border:1px solid #d7e2ed}.case-details-btn{background:#0a2345;color:#fff;border-color:#0a2345;box-shadow:0 7px 16px rgba(10,35,69,.12)}.case-details-btn:hover{background:#12365e;border-color:#c99639}
+.details-grid{gap:12px}.detail-box{background:#f8fafc;border-color:#dde5ee}.detail-box .label{color:#758398}.detail-box .value{color:#0a2142}.client-profile{background:linear-gradient(135deg,#f8fbff,#fffaf0);border-color:#ead7af}.client-profile h4{color:#a46e12}
+.modal{background:rgba(4,14,29,.66);backdrop-filter:blur(6px)}.modal-box{background:#fff;color:#0b1f39;border-color:#e5d2ab;box-shadow:0 30px 100px rgba(5,20,42,.28)}.close{color:#102847}.modal hr{border-color:#e3e8ef!important}
+.socials a{background:#f8fafc;border-color:#dce4ed;color:#102947;transition:.2s}.socials a:hover{border-color:#c99639;background:#fffaf0;transform:translateY(-1px)}.permission-grid label{background:#f8fafc;border-color:#dce4ed;color:#18314f}
+.chat-fab{left:22px;bottom:22px;width:64px;height:64px;background:linear-gradient(145deg,#092347,#133b66);border:2px solid #e2b557;color:#fff;box-shadow:0 15px 36px rgba(7,26,54,.28);display:grid;place-items:center;transition:.2s}.chat-fab:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 18px 42px rgba(7,26,54,.34)}.chat-fab svg{width:27px;height:27px;fill:#efc96f}.chat-panel{background:#fff;color:#0b1f39;border-color:#e5d2ab;box-shadow:0 25px 65px rgba(7,26,54,.23)}.messages{background:#f7f9fc;border-radius:15px;margin:8px 0}.msg{background:#e9eff6;color:#17314e}.msg.me{background:#0b2b52;color:#fff}.msg small{color:#718096}.msg.me small{color:#cad7e5}.toast{background:#fff;border-color:#d6e0ea;color:#102947;box-shadow:0 18px 40px rgba(11,32,61,.16)}.toast.error{background:#fff5f6;border-color:#e8aeb6;color:#a43140}
+#homePage:before{content:"ليكس ترست • شريكك القانوني الموثوق";display:block;margin:0 0 16px;padding:15px 20px;border-radius:18px;background:linear-gradient(105deg,#071a36,#123a66);color:#fff;font-size:18px;font-weight:800;border-right:5px solid #e5b95b;box-shadow:0 14px 28px rgba(7,26,54,.13)}
+#ownerPage .full.card h3,#casesPage h3,#permissionsPage h3{color:#0a2142}.owner-only:not(.hidden){position:relative}.owner-only:not(.hidden):after{content:"OWNER";font-size:8px;color:#efc96f;margin-right:7px}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{position:relative;height:auto}.mini-logo{justify-content:center}.nav{grid-template-columns:repeat(2,1fr)}.chat-fab{left:14px;bottom:14px}}
+</style>
+</head>
+<body>
+<div id="toast" class="toast hidden"></div>
+<div class="shell">
+  <section id="authView" class="auth-wrap">
+    <div class="auth glass">
+      <div class="brand-panel" id="brand3d">
+        <div><img class="logo" src="/assets/lextrust-logo.jpeg" alt="Lex Trust"><h1>ليكس <span class="gold">ترست</span></h1><p>بوابة رقمية لإدارة القضايا، التواصل مع العملاء، وتوزيع الأعمال داخل فريق المحاماة بشكل آمن ومنظم.</p></div>
+        <div class="socials" id="authSocials"></div>
+      </div>
+      <div class="auth-form">
+        <div class="tabs"><button id="loginTab" class="active">تسجيل الدخول</button><button id="registerTab">إنشاء حساب</button></div>
+        <form id="loginForm">
+          <h2>مرحبًا بك</h2><p class="small">يجب تسجيل الدخول للوصول إلى الصفحة الرئيسية.</p>
+          <div class="field"><label>اسم المستخدم</label><input name="username" required autocomplete="username"></div>
+          <div class="field"><label>كلمة المرور</label><input name="password" type="password" required autocomplete="current-password"></div>
+          <div class="field"><label>رقم الجوال أو البريد الإلكتروني</label><input name="contact" required></div>
+          <button class="btn btn-gold" style="width:100%;margin-top:10px">دخول</button>
+        </form>
+        <form id="registerForm" class="hidden">
+          <h2>إنشاء حساب</h2><p class="small">بعد التسجيل يمكنك طلب صلاحيات إضافية من المالك.</p>
+          <div class="field"><label>الاسم الكامل</label><input name="fullName" maxlength="120" required placeholder="الاسم كما يظهر في ملف القضية"></div>
+          <div class="field"><label>اسم المستخدم</label><input name="username" minlength="3" required></div>
+          <div class="field"><label>كلمة المرور</label><input name="password" type="password" minlength="8" required></div>
+          <div class="field"><label>رقم الجوال أو البريد الإلكتروني</label><input name="contact" required></div>
+          <button class="btn btn-gold" style="width:100%;margin-top:10px">إنشاء الحساب</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section id="appView" class="app hidden">
+    <aside class="side glass">
+      <div class="mini-logo"><img src="/assets/lextrust-logo.jpeg" alt="Lex Trust"><div><strong>LEX TRUST</strong><div class="small">للمحاماة والاستشارات القانونية والتوثيق</div></div></div>
+      <div class="nav">
+        <button class="active" data-view="home">الرئيسية</button>
+        <button data-view="cases">القضايا</button>
+        <button data-view="permissions">طلب صلاحية</button>
+        <button data-view="owner" class="owner-only hidden">لوحة المالك</button>
+        <button id="logoutBtn">تسجيل الخروج</button>
+      </div>
+    </aside>
+    <main class="main">
+      <div class="topbar"><div><h2 id="pageTitle" style="margin:0">الرئيسية</h2><div class="small" id="welcome"></div></div><div class="chip" id="roleChip"></div></div>
+      <div id="homePage" class="page">
+        <div class="grid">
+          <div class="card glass tilt"><div class="small">قضاياك</div><div class="metric" id="metricCases">0</div><div class="small">إجمالي القضايا المتاحة لحسابك</div></div>
+          <div class="card glass tilt"><div class="small">قيد المعالجة</div><div class="metric" id="metricActive">0</div><div class="small">القضايا التي يتم العمل عليها</div></div>
+          <div class="card glass tilt"><div class="small">مغلقة</div><div class="metric" id="metricClosed">0</div><div class="small">القضايا المكتملة</div></div>
+          <div class="wide card glass"><h3>فتح قضية / استشارة جديدة</h3><p class="small">أرسل التفاصيل وسيظهر للمالك رقم قضية تلقائي.</p><form id="newCaseForm"><div class="field"><label>عنوان مختصر</label><input name="title" required placeholder="مثال: مطالبة مالية"></div><div class="field"><label>تفاصيل القضية</label><textarea name="details" rows="4" required></textarea></div><button class="btn btn-gold">إرسال القضية</button></form></div>
+          <div class="card glass"><h3>تواصل معنا</h3><div class="small">تواصل مباشرة مع فريق ليكس ترست بخصوص قضيتك من زر التواصل أسفل اليسار.</div><div class="socials" id="homeSocials" style="margin-top:14px"></div></div>
+        </div>
+      </div>
+      <div id="casesPage" class="page hidden"><div class="glass" style="padding:20px"><h3>القضايا</h3><div id="caseList" class="case-list"></div></div></div>
+      <div id="permissionsPage" class="page hidden"><div class="glass" style="padding:20px"><h3>طلب صلاحية</h3><p class="small">حدد الصلاحيات المطلوبة. القرار النهائي للمالك ويمكنه منح صلاحيات مختلفة عن الطلب.</p><form id="permForm"><div class="permission-grid" id="permChoices"></div><div class="field"><label>سبب الطلب</label><textarea name="reason" rows="3"></textarea></div><button class="btn btn-gold">إرسال الطلب</button></form></div></div>
+      <div id="ownerPage" class="page hidden"><div class="grid"><div class="wide card glass"><h3>طلبات الصلاحيات</h3><div id="requestList"></div></div><div class="card glass"><h3>المستخدمون والصلاحيات</h3><div id="userList" class="small"></div></div><div class="full card glass"><h3>جميع القضايا</h3><div id="ownerCaseList" class="case-list"></div></div><div class="full card glass"><h3>سجل التدقيق الأمني</h3><div id="auditList" class="small"></div></div></div></div>
+    </main>
+  </section>
+</div>
+<button id="chatFab" class="chat-fab hidden" title="تواصل مع خدمة العملاء" aria-label="تواصل مع خدمة العملاء">
+<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 5.5A3.5 3.5 0 0 1 8 2h8a3.5 3.5 0 0 1 3.5 3.5v6A3.5 3.5 0 0 1 16 15H10l-4.7 4.05A.8.8 0 0 1 4 18.44V15.1A3.5 3.5 0 0 1 1.5 11.75V5.5h3Zm3.5 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm4 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/></svg>
+</button>
+<div id="chatPanel" class="chat-panel glass hidden"><div class="modal-head"><strong>خدمة العملاء</strong><button class="close" id="chatClose">×</button></div><div class="field"><label>القضية</label><select id="chatCase"></select></div><div id="messages" class="messages"></div><div class="chat-send"><input id="chatInput" placeholder="اكتب رسالتك..."><button id="chatSend" class="btn btn-gold">إرسال</button></div></div>
+<div id="caseModal" class="modal hidden"><div class="modal-box glass"><div class="modal-head"><h3 id="caseModalTitle"></h3><button class="close" id="caseModalClose">×</button></div><div id="caseModalBody"></div></div></div>
+<script>
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)]; let me=null,cases=[],config=null,csrfToken='';
+const perms=[['view_all_cases','عرض جميع القضايا'],['manage_cases','تعديل حالة القضايا'],['respond_chat','الرد على المحادثات'],['assign_cases','إدارة التعيين'],['manage_users','إدارة المستخدمين'],['view_audit','عرض سجل التدقيق']];
+const permLabel=v=>(perms.find(p=>p[0]===v)||[v,v])[1];
+const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+async function refreshCsrf(){const r=await fetch('/api/csrf');const j=await r.json();csrfToken=j.csrf||'';return csrfToken}
+async function api(url,opt={}){const method=(opt.method||'GET').toUpperCase();if(!['GET','HEAD','OPTIONS'].includes(method)&&!csrfToken)await refreshCsrf();const r=await fetch(url,{headers:{...(opt.body instanceof FormData?{}:{'Content-Type':'application/json'}),...(!['GET','HEAD','OPTIONS'].includes(method)?{'x-csrf-token':csrfToken}:{}),...(opt.headers||{})},...opt});const j=await r.json().catch(()=>({}));if(r.status===403&&j.error?.includes('جلسة الحماية')){await refreshCsrf();throw new Error('تم تحديث جلسة الحماية، أعد المحاولة.')};if(!r.ok)throw new Error(j.error||'حدث خطأ');if(j.csrf)csrfToken=j.csrf;return j}
+function toast(t,e=false){const x=$('#toast');x.textContent=t;x.className='toast'+(e?' error':'');setTimeout(()=>x.classList.add('hidden'),3000)}
+function fd(form){return Object.fromEntries(new FormData(form).entries())}
+async function boot(){await refreshCsrf();config=await api('/api/config');renderSocials();const m=await api('/api/me');if(m.user){me=m.user;showApp()}else showAuth()}
+function renderSocials(){const links=[['X',config.socials.x],['Instagram',config.socials.instagram],['Snapchat',config.socials.snapchat],['البريد',`mailto:${config.email}`],['الموقع',config.website]];['authSocials','homeSocials'].forEach(id=>{const e=$('#'+id);if(e)e.innerHTML=links.map(([n,u])=>`<a target="_blank" rel="noopener noreferrer" href="${esc(u)}">${esc(n)}</a>`).join('')})}
+function showAuth(){$('#authView').classList.remove('hidden');$('#appView').classList.add('hidden');$('#chatFab').classList.add('hidden')}
+async function showApp(){$('#authView').classList.add('hidden');$('#appView').classList.remove('hidden');$('#chatFab').classList.remove('hidden');$('#welcome').textContent=`مرحبًا ${me.username}`;$('#roleChip').textContent=me.role==='owner'?'المالك':me.role==='employee'?'موظف':'عميل';$('.owner-only').classList.toggle('hidden',me.role!=='owner');await loadCases()}
+$('#loginTab').onclick=()=>{$('#loginForm').classList.remove('hidden');$('#registerForm').classList.add('hidden');$('#loginTab').classList.add('active');$('#registerTab').classList.remove('active')};$('#registerTab').onclick=()=>{$('#registerForm').classList.remove('hidden');$('#loginForm').classList.add('hidden');$('#registerTab').classList.add('active');$('#loginTab').classList.remove('active')};
+$('#loginForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/login',{method:'POST',body:JSON.stringify(fd(e.target))});me=j.user;showApp()}catch(x){toast(x.message,true)}};
+$('#registerForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/register',{method:'POST',body:JSON.stringify(fd(e.target))});me=j.user;showApp()}catch(x){toast(x.message,true)}};
+$('#logoutBtn').onclick=async()=>{try{await api('/api/logout',{method:'POST',body:'{}'})}catch{}me=null;csrfToken='';await refreshCsrf();showAuth()};
+$$('.nav button[data-view]').forEach(b=>b.onclick=()=>showPage(b.dataset.view,b));
+function showPage(v,b){$$('.page').forEach(p=>p.classList.add('hidden'));$('#'+v+'Page').classList.remove('hidden');$$('.nav button').forEach(x=>x.classList.remove('active'));b?.classList.add('active');$('#pageTitle').textContent=b?.textContent||'';if(v==='owner')loadOwner()}
+async function loadCases(){cases=await api('/api/cases');$('#metricCases').textContent=cases.length;$('#metricActive').textContent=cases.filter(c=>c.status==='قيد المعالجة').length;$('#metricClosed').textContent=cases.filter(c=>c.status==='مغلقة').length;renderCases();renderChatCases()}
+function caseHtml(c){return `<div class="case"><div><strong>القضية #${esc(c.number)}</strong><div>${esc(c.title)}</div><div class="small">${c.assignee?`المسؤول: ${esc(c.assignee.username)}`:'غير مخصصة'}</div></div><div class="case-actions"><button class="case-details-btn" onclick="openCase(${Number(c.id)})">عرض التفاصيل</button><span class="status">${esc(c.status)}</span></div></div>`}
+function renderCases(){$('#caseList').innerHTML=cases.length?cases.map(caseHtml).join(''):'<div class="small">لا توجد قضايا حتى الآن.</div>'}
+$('#newCaseForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/cases',{method:'POST',body:JSON.stringify(fd(e.target))});e.target.reset();toast(`تم إنشاء القضية #${j.case.number}`);await loadCases()}catch(x){toast(x.message,true)}};
+$('#permChoices').innerHTML=perms.map(([v,l])=>`<label><input type="checkbox" value="${esc(v)}"> ${esc(l)}</label>`).join('');
+$('#permForm').onsubmit=async e=>{e.preventDefault();const permissions=$$('#permChoices input:checked').map(x=>x.value);try{await api('/api/permission-requests',{method:'POST',body:JSON.stringify({permissions,reason:new FormData(e.target).get('reason')})});toast('تم إرسال طلب الصلاحية');e.target.reset()}catch(x){toast(x.message,true)}};
+async function loadOwner(){if(me.role!=='owner')return;try{const [rs,us,cs,au]=await Promise.all([api('/api/owner/permission-requests'),api('/api/owner/users'),api('/api/cases'),api('/api/owner/audit')]);$('#requestList').innerHTML=rs.filter(r=>r.status==='pending').map(r=>`<div class="case" style="display:block"><div><strong>${esc(r.user.username)}</strong><div class="small">المطلوب: ${r.permissions.map(permLabel).map(esc).join('، ')} — ${esc(r.reason||'بدون سبب')}</div></div><div class="permission-grid" style="margin:10px 0" id="reqPerms-${r.id}">${perms.map(([v,l])=>`<label><input type="checkbox" value="${esc(v)}" ${r.permissions.includes(v)?'checked':''}> ${esc(l)}</label>`).join('')}</div><div><button class="btn btn-gold" onclick="resolveReq(${r.id},true)">موافقة بالصلاحيات المحددة</button> <button class="btn btn-danger" onclick="resolveReq(${r.id},false)">رفض</button></div></div>`).join('')||'<div class="small">لا توجد طلبات معلقة.</div>';$('#userList').innerHTML=us.map(u=>`<div style="padding:10px 0;border-bottom:1px solid #1f2e47"><b>${esc(u.username)}</b> — ${esc(u.role)}<br>${esc(u.contact)}${u.role!=='owner'?`<div class="permission-grid" style="margin-top:8px" id="userPerms-${u.id}">${perms.map(([v,l])=>`<label><input type="checkbox" value="${esc(v)}" ${(u.permissions||[]).includes(v)?'checked':''}> ${esc(l)}</label>`).join('')}</div><button class="btn btn-dark" style="margin-top:8px" onclick="saveUserPerms(${u.id})">حفظ الصلاحيات</button>`:''}</div>`).join('');$('#ownerCaseList').innerHTML=cs.map(caseHtml).join('');$('#auditList').innerHTML=au.slice(0,80).map(a=>`<div style="padding:7px 0;border-bottom:1px solid #1f2e47"><b>${esc(a.username||'النظام')}</b> — ${esc(a.action)} <span class="small">${new Date(a.createdAt).toLocaleString('ar-SA')}</span></div>`).join('')||'لا توجد سجلات.'}catch(x){toast(x.message,true)}}
+async function resolveReq(id,ok){try{const permissions=ok?[...document.querySelectorAll(`#reqPerms-${id} input:checked`)].map(x=>x.value):[];await api(`/api/owner/permission-requests/${id}/resolve`,{method:'POST',body:JSON.stringify({status:ok?'approved':'rejected',permissions})});toast(ok?'تمت الموافقة':'تم الرفض');loadOwner()}catch(x){toast(x.message,true)}}
+async function saveUserPerms(id){try{const permissions=[...document.querySelectorAll(`#userPerms-${id} input:checked`)].map(x=>x.value);await api(`/api/owner/users/${id}/permissions`,{method:'POST',body:JSON.stringify({role:'employee',permissions})});toast('تم حفظ صلاحيات المستخدم');loadOwner()}catch(x){toast(x.message,true)}}
+async function openCase(id){
+  const c=(me.role==='owner'?(await api('/api/cases')):cases).find(x=>Number(x.id)===Number(id));
+  if(!c)return;
+  $('#caseModalTitle').textContent=`القضية #${c.number} — ${c.title}`;
+  const created=c.createdAt?new Date(c.createdAt).toLocaleString('ar-SA'):'—';
+  const updated=c.updatedAt?new Date(c.updatedAt).toLocaleString('ar-SA'):'—';
+  const clientCreated=c.client?.createdAt?new Date(c.client.createdAt).toLocaleDateString('ar-SA'):'—';
+  let html=`
+    <div class="client-profile">
+      <h4>صاحب القضية</h4>
+      <div class="details-grid">
+        <div class="detail-box"><div class="label">الاسم الكامل</div><div class="value">${esc(c.client?.fullName||'غير مضاف')}</div></div>
+        <div class="detail-box"><div class="label">اسم المستخدم داخل الموقع</div><div class="value">@${esc(c.client?.username||'—')}</div></div>
+        <div class="detail-box"><div class="label">البريد / رقم الجوال</div><div class="value">${esc(c.client?.contact||'—')}</div></div>
+        <div class="detail-box"><div class="label">رقم الحساب داخل النظام</div><div class="value">#${esc(c.client?.id||'—')}</div></div>
+        <div class="detail-box"><div class="label">نوع الحساب</div><div class="value">${c.client?.role==='client'?'عميل':c.client?.role==='employee'?'موظف':c.client?.role==='owner'?'مالك':'—'}</div></div>
+        <div class="detail-box"><div class="label">تاريخ إنشاء الحساب</div><div class="value">${esc(clientCreated)}</div></div>
+      </div>
+    </div>
+    <h4>معلومات القضية</h4>
+    <div class="details-grid">
+      <div class="detail-box"><div class="label">رقم القضية</div><div class="value">#${esc(c.number)}</div></div>
+      <div class="detail-box"><div class="label">الحالة</div><div class="value">${esc(c.status)}</div></div>
+      <div class="detail-box"><div class="label">عنوان القضية</div><div class="value">${esc(c.title)}</div></div>
+      <div class="detail-box"><div class="label">الموظف المسؤول</div><div class="value">${c.assignee?`${esc(c.assignee.fullName||c.assignee.username)} (@${esc(c.assignee.username)})`:'غير مخصصة'}</div></div>
+      <div class="detail-box"><div class="label">تاريخ فتح القضية</div><div class="value">${esc(created)}</div></div>
+      <div class="detail-box"><div class="label">آخر تحديث</div><div class="value">${esc(updated)}</div></div>
+    </div>
+    <div class="detail-box"><div class="label">تفاصيل القضية</div><div class="value" style="white-space:pre-wrap;line-height:1.9">${esc(c.details)}</div></div>`;
+  if(c.ownerNotes?.length)html+=`<h4>ملاحظات داخلية</h4>${c.ownerNotes.map(n=>`<div class="case"><div>${esc(n.text)}</div></div>`).join('')}`;
+  if(c.evidence?.length)html+=`<h4>الأدلة والمرفقات</h4>${c.evidence.map(e=>`<div class="case"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a><span class="small">${esc(e.note||'')}</span></div>`).join('')}`;
+  if(me.role==='owner'){
+    html+=`<hr style="border-color:#22314a"><div class="field"><label>تخصيص القضية لموظف</label><input id="assignUser" placeholder="اسم المستخدم"><button class="btn btn-gold" onclick="assignCase(${c.id})">تخصيص</button></div><div class="field"><label>تغيير الحالة</label><select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select><button class="btn btn-dark" onclick="setCaseStatus(${c.id})">حفظ الحالة</button></div><div class="field"><label>ملاحظة داخلية (المالك فقط)</label><textarea id="ownerNote"></textarea><button class="btn btn-dark" onclick="addNote(${c.id})">إضافة الملاحظة</button></div><form id="evidenceForm" class="field"><label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label><input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required><input name="note" placeholder="ملاحظة على الملف"><button class="btn btn-dark">رفع الملف</button></form>`;
+  }
+  $('#caseModalBody').innerHTML=html;
+  $('#caseModal').classList.remove('hidden');
+  if(me.role==='owner'){
+    setTimeout(()=>{
+      if($('#caseStatus'))$('#caseStatus').value=c.status;
+      $('#evidenceForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);try{await api(`/api/cases/${c.id}/evidence`,{method:'POST',body:f});toast('تم رفع الملف');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
+    },0)
+  }
+}
+$('#caseModalClose').onclick=()=>$('#caseModal').classList.add('hidden');
+async function assignCase(id){const username=$('#assignUser').value;try{await api(`/api/cases/${id}/assign`,{method:'POST',body:JSON.stringify({username})});toast('تم تخصيص القضية');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
+async function setCaseStatus(id){try{await api(`/api/cases/${id}/status`,{method:'POST',body:JSON.stringify({status:$('#caseStatus').value})});toast('تم تحديث الحالة');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
+async function addNote(id){const text=$('#ownerNote').value;try{await api(`/api/cases/${id}/note`,{method:'POST',body:JSON.stringify({text})});toast('تمت إضافة الملاحظة');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
+function renderChatCases(){const s=$('#chatCase');s.innerHTML=cases.map(c=>`<option value="${Number(c.id)}">#${esc(c.number)} — ${esc(c.title)}</option>`).join('');if(cases.length)loadMessages(cases[0].id);else $('#messages').innerHTML='<div class="small">لا توجد قضية لبدء المحادثة.</div>'}
+$('#chatFab').onclick=()=>{$('#chatPanel').classList.toggle('hidden');if($('#chatCase').value)loadMessages($('#chatCase').value)};$('#chatClose').onclick=()=>$('#chatPanel').classList.add('hidden');$('#chatCase').onchange=e=>loadMessages(e.target.value);
+async function loadMessages(id){if(!id)return $('#messages').innerHTML='<div class="small">افتح قضية أولاً لبدء المحادثة.</div>';try{const ms=await api(`/api/cases/${id}/messages`);$('#messages').innerHTML=ms.map(m=>`<div class="msg ${Number(m.senderId)===Number(me.id)?'me':''}">${esc(m.text)}<small>${esc(m.sender.username)}</small></div>`).join('');$('#messages').scrollTop=999999}catch(x){toast(x.message,true)}}
+$('#chatSend').onclick=async()=>{const id=$('#chatCase').value,text=$('#chatInput').value.trim();if(!id||!text)return;try{await api(`/api/cases/${id}/messages`,{method:'POST',body:JSON.stringify({text})});$('#chatInput').value='';loadMessages(id)}catch(x){toast(x.message,true)}};
+addEventListener('mousemove',e=>{document.body.style.setProperty('--mx',`${e.clientX/innerWidth*100}%`);document.body.style.setProperty('--my',`${e.clientY/innerHeight*100}%`);const x=(e.clientX/innerWidth-.5)*8,y=(e.clientY/innerHeight-.5)*-8;document.documentElement.style.setProperty('--ry',`${x}deg`);document.documentElement.style.setProperty('--rx',`${y}deg`)});
+document.addEventListener('mousemove',e=>{const el=e.target.closest('.tilt');if(!el)return;const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform=`perspective(800px) rotateY(${x*7}deg) rotateX(${-y*7}deg) translateY(-2px)`});document.addEventListener('mouseout',e=>{const el=e.target.closest?.('.tilt');if(el)el.style.transform=''});
+boot();
+</script>
+</body></html>
