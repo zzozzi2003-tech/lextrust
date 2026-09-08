@@ -143,15 +143,15 @@ async function openCase(id){
     <div class="client-profile">
       <h4>صاحب القضية</h4>
       <div class="details-grid">
+        <div class="detail-box"><div class="label">رقم حساب المستخدم</div><div class="value" style="font-size:20px;font-weight:800;color:#b8831c">#${esc(c.client?.id||'—')}</div></div>
         <div class="detail-box"><div class="label">الاسم الكامل</div><div class="value">${esc(c.client?.fullName||'غير مضاف')}</div></div>
         <div class="detail-box"><div class="label">اسم المستخدم داخل الموقع</div><div class="value">@${esc(c.client?.username||'—')}</div></div>
-        <div class="detail-box"><div class="label">البريد / رقم الجوال</div><div class="value">${esc(c.client?.contact||'—')}</div></div>
-        <div class="detail-box"><div class="label">رقم الحساب داخل النظام</div><div class="value">#${esc(c.client?.id||'—')}</div></div>
+        <div class="detail-box"><div class="label">البريد الإلكتروني / رقم الجوال</div><div class="value">${esc(c.client?.contact||'—')}</div></div>
         <div class="detail-box"><div class="label">نوع الحساب</div><div class="value">${c.client?.role==='client'?'عميل':c.client?.role==='employee'?'موظف':c.client?.role==='owner'?'مالك':'—'}</div></div>
         <div class="detail-box"><div class="label">تاريخ إنشاء الحساب</div><div class="value">${esc(clientCreated)}</div></div>
       </div>
     </div>
-    <h4>معلومات القضية</h4>
+    <h4>جميع تفاصيل القضية المكتوبة</h4>
     <div class="details-grid">
       <div class="detail-box"><div class="label">رقم القضية</div><div class="value">#${esc(c.number)}</div></div>
       <div class="detail-box"><div class="label">الحالة</div><div class="value">${esc(c.status)}</div></div>
@@ -160,7 +160,7 @@ async function openCase(id){
       <div class="detail-box"><div class="label">تاريخ فتح القضية</div><div class="value">${esc(created)}</div></div>
       <div class="detail-box"><div class="label">آخر تحديث</div><div class="value">${esc(updated)}</div></div>
     </div>
-    <div class="detail-box"><div class="label">تفاصيل القضية</div><div class="value" style="white-space:pre-wrap;line-height:1.9">${esc(c.details)}</div></div>`;
+    <div class="detail-box" style="margin-top:12px"><div class="label">النص الكامل الذي كتبه صاحب القضية</div><div class="value" style="white-space:pre-wrap;line-height:2;min-height:90px">${esc(c.details||'لا توجد تفاصيل')}</div></div>`;
   if(c.ownerNotes?.length)html+=`<h4>ملاحظات داخلية</h4>${c.ownerNotes.map(n=>`<div class="case"><div>${esc(n.text)}</div></div>`).join('')}`;
   if(c.evidence?.length)html+=`<h4>الأدلة والمرفقات</h4>${c.evidence.map(e=>`<div class="case"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a><span class="small">${esc(e.note||'')}</span></div>`).join('')}`;
   if(me.role==='owner'){
