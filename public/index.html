@@ -56,6 +56,34 @@
 @media(max-width:1050px){#appView{padding-right:0!important}#appView .side{position:relative!important;right:auto!important;top:auto!important;width:100%!important;height:auto!important;margin-bottom:16px!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .nav #logoutBtn{margin-top:0!important}}
 @media(max-width:560px){#appView .nav{grid-template-columns:1fr!important}.assign-panel .assign-row{grid-template-columns:1fr!important}}
 
+
+/* ===== Lex Trust v2.8 — premium left navigation + reliable case modal ===== */
+:root{--lt-navy:#09284c;--lt-navy2:#061b35;--lt-gold:#c99332;--lt-gold2:#e5bd70;--lt-bg:#f4f7fb;--lt-card:#ffffff;--lt-text:#0b2544;--lt-muted:#708198;--lt-border:#dce5ef}
+body{background:radial-gradient(circle at 12% 8%,rgba(229,189,112,.12),transparent 26%),linear-gradient(145deg,#fbfcfe 0%,#f3f7fb 48%,#edf3f8 100%)!important;color:var(--lt-text)!important}
+#appView{padding-right:0!important;padding-left:318px!important;max-width:none!important;min-height:100vh!important}
+#appView .side{left:22px!important;right:auto!important;top:22px!important;width:286px!important;height:calc(100vh - 44px)!important;background:linear-gradient(180deg,#071c38 0%,#092b50 58%,#0b3a67 100%)!important;border:1px solid rgba(214,174,95,.32)!important;border-radius:26px!important;box-shadow:0 28px 70px rgba(4,25,50,.24)!important;padding:18px!important;display:flex!important;flex-direction:column!important}
+#appView .mini-logo{grid-template-columns:70px 1fr!important;padding:7px 6px 20px!important;border-bottom:1px solid rgba(255,255,255,.12)!important}
+#appView .mini-logo img{width:70px!important;height:70px!important;border-radius:20px!important;border:1px solid rgba(229,189,112,.38)!important;box-shadow:0 10px 25px rgba(0,0,0,.18)!important}
+#appView .mini-logo strong{font-size:16px;letter-spacing:.5px;color:#fff}.mini-logo .small{color:#aebed2!important;line-height:1.65}
+#appView .nav{display:flex!important;flex-direction:column!important;gap:10px!important;margin-top:22px!important;flex:1!important}
+#appView .nav button{min-height:54px!important;border-radius:16px!important;padding:13px 14px!important;color:#dce7f4!important;background:rgba(255,255,255,.025)!important;border:1px solid rgba(255,255,255,.06)!important;font-weight:700!important}
+#appView .nav button .nav-ico{width:31px!important;height:31px!important;border-radius:10px!important;background:rgba(229,189,112,.12)!important;color:#efcb80!important;border:1px solid rgba(229,189,112,.13)!important}
+#appView .nav button:hover,#appView .nav button.active{background:linear-gradient(135deg,rgba(229,189,112,.20),rgba(255,255,255,.08))!important;border-color:rgba(229,189,112,.35)!important;box-shadow:inset 3px 0 0 #dfb866!important}
+#appView .nav #logoutBtn{margin-top:auto!important;background:rgba(155,45,62,.08)!important;color:#ffd9df!important;border-color:rgba(255,122,145,.14)!important}
+#appView .main{padding:22px 28px 50px!important;min-width:0!important}
+.topbar{top:14px!important;border:1px solid rgba(220,229,239,.82)!important;background:rgba(255,255,255,.86)!important;box-shadow:0 10px 30px rgba(18,46,80,.06)!important;padding:16px 18px!important;margin-bottom:18px!important}
+.topbar h2{font-size:28px!important;color:#09284c!important}.chip{background:#fff8e9!important;border-color:#ead3a2!important;color:#96651c!important;font-weight:800!important}
+.card,.glass{border-color:var(--lt-border)!important}.card{background:rgba(255,255,255,.94)!important;border-radius:22px!important;box-shadow:0 12px 32px rgba(10,39,74,.065)!important}.card:hover{border-color:#dfc48e!important}
+.metric{color:#b57d20!important}.small{color:#6f8198!important}
+.case-list{gap:12px!important}.case{background:#fff!important;border:1px solid #dce5ef!important;border-radius:18px!important;padding:16px 17px!important;box-shadow:0 7px 20px rgba(9,40,76,.05)!important;align-items:center!important}.case:hover{border-color:#d4af66!important;box-shadow:0 12px 28px rgba(9,40,76,.09)!important}.case strong{color:#9e6c1b!important;font-size:15px!important}.case-details-btn{background:linear-gradient(135deg,#0a2a50,#113e70)!important;border:1px solid #0b315d!important;color:#fff!important;border-radius:12px!important;padding:10px 15px!important;box-shadow:0 8px 18px rgba(8,42,80,.15)!important}.case-details-btn:hover{transform:translateY(-1px)!important;background:linear-gradient(135deg,#123b69,#0b2a50)!important;border-color:#d2a955!important}
+.status{background:#f4f7fb!important;color:#34516e!important;border:1px solid #dce5ef!important;padding:7px 10px!important}
+.modal{z-index:9999!important;background:rgba(3,15,30,.64)!important;backdrop-filter:blur(8px)!important;padding:24px!important}.modal-box{width:min(920px,96vw)!important;max-height:90vh!important;background:#fff!important;color:#0a2443!important;border:1px solid rgba(214,174,95,.45)!important;border-radius:24px!important;box-shadow:0 36px 90px rgba(2,18,36,.34)!important;padding:0!important;overflow:hidden!important}.modal-head{position:sticky!important;top:0!important;z-index:3!important;background:linear-gradient(135deg,#08284d,#0b3865)!important;color:#fff!important;padding:18px 22px!important;border-bottom:1px solid rgba(229,189,112,.35)!important}.modal-head h3{margin:0!important;color:#fff!important}.modal-box #caseModalBody{padding:22px!important;overflow:auto!important;max-height:calc(90vh - 72px)!important}.close{width:38px!important;height:38px!important;border-radius:12px!important;background:rgba(255,255,255,.08)!important;color:#fff!important;display:grid!important;place-items:center!important}.close:hover{background:rgba(255,255,255,.16)!important}
+.client-profile{background:linear-gradient(135deg,#f8fbff,#fffaf0)!important;border:1px solid #ead7af!important;border-radius:19px!important;padding:18px!important}.client-profile h4{color:#a66f14!important;font-size:17px!important}.detail-box{background:#f8fafc!important;border:1px solid #dce5ef!important;border-radius:14px!important;padding:13px!important}.detail-box .label{color:#78889c!important;font-size:11px!important}.detail-box .value{color:#0a2345!important;font-weight:800!important}
+.assign-panel{background:linear-gradient(135deg,#fffaf0,#fff)!important;border-color:#e6cf9f!important}.field input,.field textarea,.field select{background:#fff!important;color:#0b2544!important;border:1px solid #d7e1ec!important;border-radius:12px!important}.field input:focus,.field textarea:focus,.field select:focus{outline:none!important;border-color:#c99a43!important;box-shadow:0 0 0 3px rgba(201,154,67,.12)!important}
+.owner-user-card{border-radius:20px!important;box-shadow:0 10px 26px rgba(9,40,76,.055)!important}.admin-badge{background:#0a2b52!important;border-color:#c99d4b!important}
+@media(max-width:1120px){#appView{padding-left:0!important}#appView .side{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;margin:14px!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .nav #logoutBtn{margin-top:0!important}#appView .main{padding:12px 14px 40px!important}}
+@media(max-width:620px){#appView .nav{grid-template-columns:1fr!important}.modal{padding:10px!important}.modal-box{width:100%!important;border-radius:18px!important}.details-grid{grid-template-columns:1fr!important}}
+
 </style>
 
 <style id="lextrust-v23-light-theme">
@@ -98,6 +126,34 @@ body:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgb
 #ownerPage .grid{gap:18px}#ownerPage .full.card{padding:22px;border-radius:22px}.topbar{position:sticky;top:10px;z-index:20;background:rgba(244,247,251,.92);backdrop-filter:blur(14px);border-radius:16px;padding:12px 14px 16px!important}
 @media(max-width:1050px){#appView{padding-right:0!important}#appView .side{position:relative!important;right:auto!important;top:auto!important;width:100%!important;height:auto!important;margin-bottom:16px!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .nav #logoutBtn{margin-top:0!important}}
 @media(max-width:560px){#appView .nav{grid-template-columns:1fr!important}.assign-panel .assign-row{grid-template-columns:1fr!important}}
+
+
+/* ===== Lex Trust v2.8 — premium left navigation + reliable case modal ===== */
+:root{--lt-navy:#09284c;--lt-navy2:#061b35;--lt-gold:#c99332;--lt-gold2:#e5bd70;--lt-bg:#f4f7fb;--lt-card:#ffffff;--lt-text:#0b2544;--lt-muted:#708198;--lt-border:#dce5ef}
+body{background:radial-gradient(circle at 12% 8%,rgba(229,189,112,.12),transparent 26%),linear-gradient(145deg,#fbfcfe 0%,#f3f7fb 48%,#edf3f8 100%)!important;color:var(--lt-text)!important}
+#appView{padding-right:0!important;padding-left:318px!important;max-width:none!important;min-height:100vh!important}
+#appView .side{left:22px!important;right:auto!important;top:22px!important;width:286px!important;height:calc(100vh - 44px)!important;background:linear-gradient(180deg,#071c38 0%,#092b50 58%,#0b3a67 100%)!important;border:1px solid rgba(214,174,95,.32)!important;border-radius:26px!important;box-shadow:0 28px 70px rgba(4,25,50,.24)!important;padding:18px!important;display:flex!important;flex-direction:column!important}
+#appView .mini-logo{grid-template-columns:70px 1fr!important;padding:7px 6px 20px!important;border-bottom:1px solid rgba(255,255,255,.12)!important}
+#appView .mini-logo img{width:70px!important;height:70px!important;border-radius:20px!important;border:1px solid rgba(229,189,112,.38)!important;box-shadow:0 10px 25px rgba(0,0,0,.18)!important}
+#appView .mini-logo strong{font-size:16px;letter-spacing:.5px;color:#fff}.mini-logo .small{color:#aebed2!important;line-height:1.65}
+#appView .nav{display:flex!important;flex-direction:column!important;gap:10px!important;margin-top:22px!important;flex:1!important}
+#appView .nav button{min-height:54px!important;border-radius:16px!important;padding:13px 14px!important;color:#dce7f4!important;background:rgba(255,255,255,.025)!important;border:1px solid rgba(255,255,255,.06)!important;font-weight:700!important}
+#appView .nav button .nav-ico{width:31px!important;height:31px!important;border-radius:10px!important;background:rgba(229,189,112,.12)!important;color:#efcb80!important;border:1px solid rgba(229,189,112,.13)!important}
+#appView .nav button:hover,#appView .nav button.active{background:linear-gradient(135deg,rgba(229,189,112,.20),rgba(255,255,255,.08))!important;border-color:rgba(229,189,112,.35)!important;box-shadow:inset 3px 0 0 #dfb866!important}
+#appView .nav #logoutBtn{margin-top:auto!important;background:rgba(155,45,62,.08)!important;color:#ffd9df!important;border-color:rgba(255,122,145,.14)!important}
+#appView .main{padding:22px 28px 50px!important;min-width:0!important}
+.topbar{top:14px!important;border:1px solid rgba(220,229,239,.82)!important;background:rgba(255,255,255,.86)!important;box-shadow:0 10px 30px rgba(18,46,80,.06)!important;padding:16px 18px!important;margin-bottom:18px!important}
+.topbar h2{font-size:28px!important;color:#09284c!important}.chip{background:#fff8e9!important;border-color:#ead3a2!important;color:#96651c!important;font-weight:800!important}
+.card,.glass{border-color:var(--lt-border)!important}.card{background:rgba(255,255,255,.94)!important;border-radius:22px!important;box-shadow:0 12px 32px rgba(10,39,74,.065)!important}.card:hover{border-color:#dfc48e!important}
+.metric{color:#b57d20!important}.small{color:#6f8198!important}
+.case-list{gap:12px!important}.case{background:#fff!important;border:1px solid #dce5ef!important;border-radius:18px!important;padding:16px 17px!important;box-shadow:0 7px 20px rgba(9,40,76,.05)!important;align-items:center!important}.case:hover{border-color:#d4af66!important;box-shadow:0 12px 28px rgba(9,40,76,.09)!important}.case strong{color:#9e6c1b!important;font-size:15px!important}.case-details-btn{background:linear-gradient(135deg,#0a2a50,#113e70)!important;border:1px solid #0b315d!important;color:#fff!important;border-radius:12px!important;padding:10px 15px!important;box-shadow:0 8px 18px rgba(8,42,80,.15)!important}.case-details-btn:hover{transform:translateY(-1px)!important;background:linear-gradient(135deg,#123b69,#0b2a50)!important;border-color:#d2a955!important}
+.status{background:#f4f7fb!important;color:#34516e!important;border:1px solid #dce5ef!important;padding:7px 10px!important}
+.modal{z-index:9999!important;background:rgba(3,15,30,.64)!important;backdrop-filter:blur(8px)!important;padding:24px!important}.modal-box{width:min(920px,96vw)!important;max-height:90vh!important;background:#fff!important;color:#0a2443!important;border:1px solid rgba(214,174,95,.45)!important;border-radius:24px!important;box-shadow:0 36px 90px rgba(2,18,36,.34)!important;padding:0!important;overflow:hidden!important}.modal-head{position:sticky!important;top:0!important;z-index:3!important;background:linear-gradient(135deg,#08284d,#0b3865)!important;color:#fff!important;padding:18px 22px!important;border-bottom:1px solid rgba(229,189,112,.35)!important}.modal-head h3{margin:0!important;color:#fff!important}.modal-box #caseModalBody{padding:22px!important;overflow:auto!important;max-height:calc(90vh - 72px)!important}.close{width:38px!important;height:38px!important;border-radius:12px!important;background:rgba(255,255,255,.08)!important;color:#fff!important;display:grid!important;place-items:center!important}.close:hover{background:rgba(255,255,255,.16)!important}
+.client-profile{background:linear-gradient(135deg,#f8fbff,#fffaf0)!important;border:1px solid #ead7af!important;border-radius:19px!important;padding:18px!important}.client-profile h4{color:#a66f14!important;font-size:17px!important}.detail-box{background:#f8fafc!important;border:1px solid #dce5ef!important;border-radius:14px!important;padding:13px!important}.detail-box .label{color:#78889c!important;font-size:11px!important}.detail-box .value{color:#0a2345!important;font-weight:800!important}
+.assign-panel{background:linear-gradient(135deg,#fffaf0,#fff)!important;border-color:#e6cf9f!important}.field input,.field textarea,.field select{background:#fff!important;color:#0b2544!important;border:1px solid #d7e1ec!important;border-radius:12px!important}.field input:focus,.field textarea:focus,.field select:focus{outline:none!important;border-color:#c99a43!important;box-shadow:0 0 0 3px rgba(201,154,67,.12)!important}
+.owner-user-card{border-radius:20px!important;box-shadow:0 10px 26px rgba(9,40,76,.055)!important}.admin-badge{background:#0a2b52!important;border-color:#c99d4b!important}
+@media(max-width:1120px){#appView{padding-left:0!important}#appView .side{position:relative!important;left:auto!important;top:auto!important;width:auto!important;height:auto!important;margin:14px!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .nav #logoutBtn{margin-top:0!important}#appView .main{padding:12px 14px 40px!important}}
+@media(max-width:620px){#appView .nav{grid-template-columns:1fr!important}.modal{padding:10px!important}.modal-box{width:100%!important;border-radius:18px!important}.details-grid{grid-template-columns:1fr!important}}
 
 </style>
 </head>
@@ -226,61 +282,77 @@ async function loadOwner(){
 async function saveUserPerms(id){try{const permissions=[...document.querySelectorAll(`#userPerms-${id} input:checked`)].map(x=>x.value);const role=$(`#userRole-${id}`)?.value||'client';await api(`/api/owner/users/${id}/permissions`,{method:'POST',body:JSON.stringify({role,permissions:role==='employee'?permissions:[]})});toast('تم حفظ صلاحيات المستخدم');loadOwner()}catch(x){toast(x.message,true)}}
 async function openCase(id){
   try{
-    if(!me)return toast('يجب تسجيل الدخول أولاً',true);
+    if(!me){toast('يجب تسجيل الدخول أولاً',true);return}
+    const modal=$('#caseModal');
+    const body=$('#caseModalBody');
+    const title=$('#caseModalTitle');
+    title.textContent='جاري تحميل تفاصيل القضية...';
+    body.innerHTML='<div style="padding:28px;text-align:center;color:#71839a">جاري تحميل جميع بيانات القضية...</div>';
+    modal.classList.remove('hidden');
+
+    const c=await api(`/api/cases/${Number(id)}`);
     if(me.role==='owner' && !ownerUsers.length){try{ownerUsers=await api('/api/owner/users')}catch{ownerUsers=[]}}
-    let source=cases;
-    if(me.role==='owner') source=await api('/api/cases');
-    const c=source.find(x=>Number(x.id)===Number(id));
-    if(!c) return toast('تعذر العثور على تفاصيل القضية',true);
-  $('#caseModalTitle').textContent=`القضية #${c.number} — ${c.title}`;
-  const created=c.createdAt?new Date(c.createdAt).toLocaleString('ar-SA'):'—';
-  const updated=c.updatedAt?new Date(c.updatedAt).toLocaleString('ar-SA'):'—';
-  const clientCreated=c.client?.createdAt?new Date(c.client.createdAt).toLocaleDateString('ar-SA'):'—';
-  let html=`
-    <div class="client-profile">
-      <h4>صاحب القضية</h4>
-      <div class="details-grid">
-        <div class="detail-box"><div class="label">رقم حساب المستخدم</div><div class="value" style="font-size:20px;font-weight:800;color:#b8831c">#${esc(c.client?.id||'—')}</div></div>
-        <div class="detail-box"><div class="label">الاسم الكامل</div><div class="value">${esc(c.client?.fullName||'غير مضاف')}</div></div>
-        <div class="detail-box"><div class="label">اسم المستخدم داخل الموقع</div><div class="value">@${esc(c.client?.username||'—')}</div></div>
-        <div class="detail-box"><div class="label">البريد الإلكتروني / رقم الجوال</div><div class="value">${esc(c.client?.contact||'—')}</div></div>
-        <div class="detail-box"><div class="label">نوع الحساب</div><div class="value">${c.client?.role==='client'?'عميل':c.client?.role==='employee'?'موظف':c.client?.role==='owner'?'مالك':'—'}</div></div>
-        <div class="detail-box"><div class="label">تاريخ إنشاء الحساب</div><div class="value">${esc(clientCreated)}</div></div>
+    title.textContent=`القضية #${c.number} — ${c.title}`;
+    const created=c.createdAt?new Date(c.createdAt).toLocaleString('ar-SA'):'—';
+    const updated=c.updatedAt?new Date(c.updatedAt).toLocaleString('ar-SA'):'—';
+    const clientCreated=c.client?.createdAt?new Date(c.client.createdAt).toLocaleString('ar-SA'):'—';
+    let html=`
+      <div class="client-profile">
+        <h4>بيانات صاحب القضية</h4>
+        <div class="details-grid">
+          <div class="detail-box"><div class="label">رقم الحساب داخل الموقع</div><div class="value" style="font-size:22px;color:#a97116">#${esc(c.client?.id||'—')}</div></div>
+          <div class="detail-box"><div class="label">الاسم الكامل</div><div class="value">${esc(c.client?.fullName||'غير مضاف')}</div></div>
+          <div class="detail-box"><div class="label">اسم المستخدم</div><div class="value">@${esc(c.client?.username||'—')}</div></div>
+          <div class="detail-box"><div class="label">البريد الإلكتروني / رقم الجوال</div><div class="value">${esc(c.client?.contact||'—')}</div></div>
+          <div class="detail-box"><div class="label">نوع الحساب</div><div class="value">${c.client?.role==='client'?'عميل':c.client?.role==='employee'?'أدمن / موظف':c.client?.role==='owner'?'مالك':'—'}</div></div>
+          <div class="detail-box"><div class="label">تاريخ إنشاء الحساب</div><div class="value">${esc(clientCreated)}</div></div>
+        </div>
       </div>
-    </div>
-    <h4>جميع تفاصيل القضية المكتوبة</h4>
-    <div class="details-grid">
-      <div class="detail-box"><div class="label">رقم القضية</div><div class="value">#${esc(c.number)}</div></div>
-      <div class="detail-box"><div class="label">الحالة</div><div class="value">${esc(c.status)}</div></div>
-      <div class="detail-box"><div class="label">عنوان القضية</div><div class="value">${esc(c.title)}</div></div>
-      <div class="detail-box"><div class="label">الموظف المسؤول</div><div class="value">${c.assignee?`${esc(c.assignee.fullName||c.assignee.username)} (@${esc(c.assignee.username)})`:'غير مخصصة'}</div></div>
-      <div class="detail-box"><div class="label">تاريخ فتح القضية</div><div class="value">${esc(created)}</div></div>
-      <div class="detail-box"><div class="label">آخر تحديث</div><div class="value">${esc(updated)}</div></div>
-    </div>
-    <div class="detail-box" style="margin-top:12px"><div class="label">النص الكامل الذي كتبه صاحب القضية</div><div class="value" style="white-space:pre-wrap;line-height:2;min-height:90px">${esc(c.details||'لا توجد تفاصيل')}</div></div>`;
-  if(c.ownerNotes?.length)html+=`<h4>ملاحظات داخلية</h4>${c.ownerNotes.map(n=>`<div class="case"><div>${esc(n.text)}</div></div>`).join('')}`;
-  if(c.evidence?.length)html+=`<h4>الأدلة والمرفقات</h4>${c.evidence.map(e=>`<div class="case"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a><span class="small">${esc(e.note||'')}</span></div>`).join('')}`;
-  if(me.role==='owner'){
-    const admins=ownerUsers.filter(u=>u.role==='employee'||u.role==='owner');
-    const adminOptions=admins.map(u=>`<option value="${esc(u.username)}" ${c.assignee&&String(c.assignee.id)===String(u.id)?'selected':''}>${esc(u.fullName||u.username)} — @${esc(u.username)} ${u.role==='owner'?'(المالك)':''}</option>`).join('');
-    html+=`<hr><div class="assign-panel"><div class="assign-row"><div class="field" style="margin:0"><label>تحويل القضية إلى أدمن</label><select id="assignUser"><option value="">اختر الأدمن المسؤول...</option>${adminOptions}</select></div><button class="btn btn-gold" onclick="assignCase(${c.id})">تحويل القضية</button></div><div class="small" style="margin-top:8px">تظهر هنا كل الحسابات التي حولها المالك إلى أدمن / موظف.</div></div><div class="field"><label>تغيير الحالة</label><select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select><button class="btn btn-dark" onclick="setCaseStatus(${c.id})">حفظ الحالة</button></div><div class="field"><label>ملاحظة داخلية (المالك فقط)</label><textarea id="ownerNote"></textarea><button class="btn btn-dark" onclick="addNote(${c.id})">إضافة الملاحظة</button></div><form id="evidenceForm" class="field"><label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label><input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required><input name="note" placeholder="ملاحظة على الملف"><button class="btn btn-dark">رفع الملف</button></form>`;
-  }
-  $('#caseModalBody').innerHTML=html;
-  $('#caseModal').classList.remove('hidden');
-  if(me.role==='owner'){
-    setTimeout(()=>{
-      if($('#caseStatus'))$('#caseStatus').value=c.status;
+      <h4 style="margin:20px 0 10px">بيانات القضية</h4>
+      <div class="details-grid">
+        <div class="detail-box"><div class="label">رقم القضية</div><div class="value">#${esc(c.number)}</div></div>
+        <div class="detail-box"><div class="label">الحالة</div><div class="value">${esc(c.status)}</div></div>
+        <div class="detail-box"><div class="label">عنوان القضية</div><div class="value">${esc(c.title)}</div></div>
+        <div class="detail-box"><div class="label">الأدمن / الموظف المسؤول</div><div class="value">${c.assignee?`${esc(c.assignee.fullName||c.assignee.username)} (@${esc(c.assignee.username)})`:'غير مخصصة'}</div></div>
+        <div class="detail-box"><div class="label">تاريخ فتح القضية</div><div class="value">${esc(created)}</div></div>
+        <div class="detail-box"><div class="label">آخر تحديث</div><div class="value">${esc(updated)}</div></div>
+      </div>
+      <div class="detail-box" style="margin-top:12px"><div class="label">جميع التفاصيل التي كتبها صاحب القضية</div><div class="value" style="white-space:pre-wrap;line-height:2;min-height:100px">${esc(c.details||'لا توجد تفاصيل')}</div></div>`;
+
+    if(c.ownerNotes?.length) html+=`<h4 style="margin-top:20px">الملاحظات الداخلية</h4>${c.ownerNotes.map(n=>`<div class="detail-box" style="margin-top:8px"><div class="value">${esc(n.text)}</div><div class="label" style="margin-top:5px">${esc(n.author||'')}</div></div>`).join('')}`;
+    if(c.evidence?.length) html+=`<h4 style="margin-top:20px">الأدلة والمرفقات</h4>${c.evidence.map(e=>`<div class="detail-box" style="margin-top:8px"><a href="${esc(e.url)}" target="_blank" rel="noopener"><b>${esc(e.name)}</b></a><div class="label">${esc(e.note||'بدون ملاحظة')}</div></div>`).join('')}`;
+
+    if(me.role==='owner'){
+      const admins=ownerUsers.filter(u=>u.role==='employee'||u.role==='owner');
+      const adminOptions=admins.map(u=>`<option value="${esc(u.username)}" ${c.assignee&&String(c.assignee.id)===String(u.id)?'selected':''}>${esc(u.fullName||u.username)} — @${esc(u.username)}${u.role==='owner'?' (المالك)':''}</option>`).join('');
+      html+=`<div class="assign-panel"><h4 style="margin-top:0">إدارة القضية</h4><div class="assign-row"><div class="field" style="margin:0"><label>تحويل القضية إلى أدمن</label><select id="assignUser"><option value="">اختر الأدمن المسؤول...</option>${adminOptions}</select></div><button type="button" class="btn btn-gold modal-action" data-action="assign" data-case-id="${Number(c.id)}">تحويل القضية</button></div></div>
+      <div class="field"><label>تغيير الحالة</label><select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select><button type="button" class="btn btn-dark modal-action" data-action="status" data-case-id="${Number(c.id)}">حفظ الحالة</button></div>
+      <div class="field"><label>ملاحظة داخلية (المالك فقط)</label><textarea id="ownerNote"></textarea><button type="button" class="btn btn-dark modal-action" data-action="note" data-case-id="${Number(c.id)}">إضافة الملاحظة</button></div>
+      <form id="evidenceForm" class="field"><label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label><input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required><input name="note" placeholder="ملاحظة على الملف"><button class="btn btn-dark">رفع الملف</button></form>`;
+    }
+    body.innerHTML=html;
+    if(me.role==='owner'){
+      if($('#caseStatus')) $('#caseStatus').value=c.status;
       const evidenceForm=$('#evidenceForm');
-      if(evidenceForm) evidenceForm.onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);try{await api(`/api/cases/${c.id}/evidence`,{method:'POST',body:f});toast('تم رفع الملف');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
-    },0)
+      if(evidenceForm) evidenceForm.onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);try{await api(`/api/cases/${c.id}/evidence`,{method:'POST',body:f});toast('تم رفع الملف');await openCase(c.id);await loadCases();await loadOwner()}catch(x){toast(x.message,true)}};
+    }
+  }catch(x){
+    console.error('openCase failed',x);
+    $('#caseModalTitle').textContent='تعذر فتح القضية';
+    $('#caseModalBody').innerHTML=`<div class="detail-box"><div class="value">${esc(x?.message||'تعذر تحميل تفاصيل القضية')}</div></div>`;
+    $('#caseModal').classList.remove('hidden');
   }
-  }catch(x){console.error('openCase failed',x);toast(x?.message||'تعذر فتح تفاصيل القضية',true)}
 }
 document.addEventListener('click',e=>{
-  const btn=e.target.closest('.case-details-btn[data-case-id]');
-  if(!btn)return;
-  e.preventDefault();e.stopPropagation();
-  openCase(Number(btn.dataset.caseId));
+  const detailBtn=e.target.closest('.case-details-btn[data-case-id]');
+  if(detailBtn){e.preventDefault();e.stopPropagation();openCase(detailBtn.dataset.caseId);return}
+  const actionBtn=e.target.closest('.modal-action[data-action][data-case-id]');
+  if(!actionBtn)return;
+  e.preventDefault();
+  const id=Number(actionBtn.dataset.caseId);
+  if(actionBtn.dataset.action==='assign')assignCase(id);
+  if(actionBtn.dataset.action==='status')setCaseStatus(id);
+  if(actionBtn.dataset.action==='note')addNote(id);
 });
 $('#caseModalClose').onclick=()=>$('#caseModal').classList.add('hidden');
 $('#caseModal').addEventListener('click',e=>{if(e.target.id==='caseModal')$('#caseModal').classList.add('hidden')});

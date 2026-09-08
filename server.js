@@ -396,6 +396,21 @@ async function getAccessibleCase(user, caseId) {
   return false;
 }
 
+
+app.get('/api/cases/:id', auth, async (req, res, next) => {
+  try {
+    const user = req.session.user;
+    const q = await pool.query(`SELECT c.*,cl.username client_username,cl.full_name client_full_name,cl.contact client_contact,cl.role client_role,cl.permissions client_permissions,cl.created_at client_created_at,
+      a.username assignee_username,a.full_name assignee_full_name,a.contact assignee_contact,a.role assignee_role,a.permissions assignee_permissions,a.created_at assignee_created_at
+      FROM cases c JOIN users cl ON cl.id=c.client_id LEFT JOIN users a ON a.id=c.assigned_to WHERE c.id=$1 LIMIT 1`, [req.params.id]);
+    if (!q.rowCount) return res.status(404).json({ error: 'القضية غير موجودة' });
+    const row = q.rows[0];
+    const allowed = user.role === 'owner' || can(user,'view_all_cases') || String(row.client_id) === String(user.id) || String(row.assigned_to || '') === String(user.id);
+    if (!allowed) return res.status(403).json({ error: 'غير مصرح بعرض هذه القضية' });
+    res.json(await decorateCase(row, user));
+  } catch (e) { next(e); }
+});
+
 app.post('/api/cases/:id/assign', ownerOnly, async (req, res, next) => {
   try {
     const username = safeUsername(req.body.username);
