@@ -1,0 +1,8 @@
+Lex Trust v2.9
+- Fixed fatal JavaScript syntax error that prevented "عرض التفاصيل" and other UI interactions.
+- Verified public/index.html JavaScript with node --check.
+- Verified server.js with node --check.
+- Case details modal uses /api/cases/:id and displays client account ID, full name, username, contact, case data, assignee, notes, and evidence.
+- Owner can assign a case to an employee/admin from the case details modal.
+- Reworked left sidebar and application UI with navy/gold/light theme.
+- Existing PostgreSQL database and environment variables remain compatible.

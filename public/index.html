@@ -156,6 +156,32 @@ body{background:radial-gradient(circle at 12% 8%,rgba(229,189,112,.12),transpare
 @media(max-width:620px){#appView .nav{grid-template-columns:1fr!important}.modal{padding:10px!important}.modal-box{width:100%!important;border-radius:18px!important}.details-grid{grid-template-columns:1fr!important}}
 
 </style>
+
+<style id="v29-ui-fix">
+#appView.app{direction:ltr;grid-template-columns:280px minmax(0,1fr)!important;gap:22px!important;max-width:1660px;margin:0 auto;padding:20px!important;background:linear-gradient(135deg,#f8fafc 0%,#eef4fa 58%,#fffaf0 100%)!important;min-height:100vh}
+#appView .side{direction:rtl;position:sticky!important;top:20px!important;height:calc(100vh - 40px)!important;background:linear-gradient(180deg,#071a33,#0c2a50)!important;border:1px solid rgba(212,175,102,.36)!important;border-radius:24px!important;padding:18px!important;box-shadow:0 24px 55px rgba(7,26,51,.18)!important;overflow:auto}
+#appView .main{direction:rtl;min-width:0;padding:0!important}
+#appView .mini-logo{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)!important;border-radius:18px;padding:12px!important;margin-bottom:16px}
+#appView .mini-logo img{width:58px!important;height:58px!important;border-radius:16px!important;border:1px solid rgba(212,175,102,.5)}
+#appView .mini-logo strong{color:#fff;font-size:16px;letter-spacing:.5px}#appView .mini-logo .small{color:#b9c8d9!important;line-height:1.7}
+#appView .nav{display:flex!important;flex-direction:column!important;gap:9px!important;margin-top:10px!important}
+#appView .nav button{display:flex!important;align-items:center!important;gap:12px!important;width:100%!important;text-align:right!important;padding:13px 14px!important;border-radius:14px!important;color:#dce8f5!important;border:1px solid transparent!important;transition:.2s ease!important;font-weight:700}
+#appView .nav button:hover{background:rgba(255,255,255,.07)!important;border-color:rgba(212,175,102,.25)!important;transform:translateX(2px)}
+#appView .nav button.active{background:linear-gradient(135deg,#d6aa55,#f2d48c)!important;color:#081a31!important;border-color:#f3d991!important;box-shadow:0 10px 24px rgba(212,175,85,.25)!important}
+#appView .nav-ico{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:rgba(255,255,255,.08);font-size:18px;flex:0 0 34px}
+#appView .nav button.active .nav-ico{background:rgba(8,26,49,.12)}
+#appView .topbar{background:#fff;border:1px solid #e0e8f0;border-radius:20px;padding:16px 18px!important;margin-bottom:16px;box-shadow:0 10px 30px rgba(10,35,69,.06)}
+#appView .chip{background:#eef4fa!important;color:#17395c!important;border:1px solid #d6e1eb!important}
+#appView .glass{background:#fff!important;border:1px solid #e0e7ef!important;box-shadow:0 12px 32px rgba(10,35,69,.06)!important}
+#appView .card{border-radius:20px!important}.metric{color:#b9872f!important}
+#appView .case{background:#fff!important;border:1px solid #dce5ee!important;box-shadow:0 8px 22px rgba(10,35,69,.055)!important;border-radius:17px!important}.case:hover{border-color:#d3ad63!important;box-shadow:0 14px 30px rgba(10,35,69,.09)!important}
+#caseModal{z-index:9999!important;backdrop-filter:blur(7px)}#caseModal .modal-box{background:#fff!important;color:#0a2142!important;border:1px solid #e1e7ee!important;border-radius:24px!important;box-shadow:0 30px 80px rgba(7,26,51,.25)!important;width:min(900px,96vw)!important;max-height:90vh!important}
+#caseModal .close{color:#0a2142!important;background:#eef3f8!important;width:38px;height:38px;border-radius:12px!important;display:grid;place-items:center}
+#caseModal .detail-box{background:#f8fafc!important;border-color:#e0e7ee!important}.assign-panel{margin-top:20px;padding:16px;border:1px solid #e6d2a5;border-radius:18px;background:linear-gradient(135deg,#fffaf0,#fff)}
+#caseModal select,#caseModal textarea,#caseModal input{background:#fff!important;color:#0a2142!important;border:1px solid #d9e2eb!important}
+@media(max-width:980px){#appView.app{grid-template-columns:1fr!important;padding:12px!important}#appView .side{position:relative!important;top:0!important;height:auto!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .mini-logo{margin-bottom:10px}}
+@media(max-width:560px){#appView .nav{grid-template-columns:1fr!important}.grid{grid-template-columns:1fr!important}.card,.wide,.full{grid-column:1/-1!important}}
+</style>
 </head>
 <body>
 <div id="toast" class="toast hidden"></div>
@@ -325,10 +351,33 @@ async function openCase(id){
     if(me.role==='owner'){
       const admins=ownerUsers.filter(u=>u.role==='employee'||u.role==='owner');
       const adminOptions=admins.map(u=>`<option value="${esc(u.username)}" ${c.assignee&&String(c.assignee.id)===String(u.id)?'selected':''}>${esc(u.fullName||u.username)} — @${esc(u.username)}${u.role==='owner'?' (المالك)':''}</option>`).join('');
-      html+=`<div class="assign-panel"><h4 style="margin-top:0">إدارة القضية</h4><div class="assign-row"><div class="field" style="margin:0"><label>تحويل القضية إلى أدمن</label><select id="assignUser"><option value="">اختر الأدمن المسؤول...</option>${adminOptions}</select></div><button type="button" class="btn btn-gold modal-action" data-action="assign" data-case-id="${Number(c.id)}">تحويل القضية</button></div></div>
-      <div class="field"><label>تغيير الحالة</label><select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select><button type="button" class="btn btn-dark modal-action" data-action="status" data-case-id="${Number(c.id)}">حفظ الحالة</button></div>
-      <div class="field"><label>ملاحظة داخلية (المالك فقط)</label><textarea id="ownerNote"></textarea><button type="button" class="btn btn-dark modal-action" data-action="note" data-case-id="${Number(c.id)}">إضافة الملاحظة</button></div>
-      <form id="evidenceForm" class="field"><label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label><input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required><input name="note" placeholder="ملاحظة على الملف"><button class="btn btn-dark">رفع الملف</button></form>`;
+      html+=`
+        <div class="assign-panel">
+          <h4 style="margin-top:0">إدارة القضية</h4>
+          <div class="assign-row">
+            <div class="field" style="margin:0">
+              <label>تحويل القضية إلى أدمن</label>
+              <select id="assignUser"><option value="">اختر الأدمن المسؤول...</option>${adminOptions}</select>
+            </div>
+            <button type="button" class="btn btn-gold modal-action" data-action="assign" data-case-id="${Number(c.id)}">تحويل القضية</button>
+          </div>
+          <div class="field">
+            <label>تغيير الحالة</label>
+            <select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select>
+            <button type="button" class="btn btn-dark modal-action" data-action="status" data-case-id="${Number(c.id)}">حفظ الحالة</button>
+          </div>
+          <div class="field">
+            <label>ملاحظة داخلية (المالك فقط)</label>
+            <textarea id="ownerNote"></textarea>
+            <button type="button" class="btn btn-dark modal-action" data-action="note" data-case-id="${Number(c.id)}">إضافة الملاحظة</button>
+          </div>
+          <form id="evidenceForm" class="field">
+            <label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label>
+            <input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required>
+            <input name="note" placeholder="ملاحظة على الملف">
+            <button class="btn btn-dark">رفع الملف</button>
+          </form>
+        </div>`;
     }
     body.innerHTML=html;
     if(me.role==='owner'){
