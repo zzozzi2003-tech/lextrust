@@ -33,6 +33,29 @@
   @media(max-width:900px){.public-nav{align-items:flex-start;flex-direction:column}.public-links{display:none}.hero-public{grid-template-columns:1fr;padding-top:38px}.hero-visual{min-height:360px}.public-stats,.service-grid{grid-template-columns:1fr 1fr}.public-cta{flex-direction:column;align-items:flex-start}.public-footer{flex-direction:column;align-items:flex-start}.hero-copy h1{font-size:42px}}
   @media(max-width:560px){.public-stats,.service-grid{grid-template-columns:1fr}.public-actions{width:100%}.public-actions button{flex:1}.public-site{padding:12px}.hero-public{padding-left:2px;padding-right:2px}.public-section{padding-left:2px;padding-right:2px}}
 
+
+/* ===== Lex Trust v2.6 — robust right sidebar & owner workflow ===== */
+#appView{direction:rtl;display:block;max-width:1900px;margin:0 auto;position:relative;padding-right:304px;min-height:calc(100vh - 44px)}
+#appView.hidden{display:none!important}
+#appView .side{position:fixed!important;right:22px!important;left:auto!important;top:22px!important;width:282px!important;height:calc(100vh - 44px)!important;z-index:45!important;padding:16px!important;overflow-y:auto!important;background:linear-gradient(180deg,#071a36 0%,#0b284d 65%,#0e365f 100%)!important;border:1px solid rgba(229,185,91,.26)!important;border-radius:24px!important;box-shadow:0 24px 65px rgba(7,26,54,.22)!important}
+#appView .main{width:100%;min-width:0;padding:4px 8px 36px!important}
+#appView .mini-logo{display:grid!important;grid-template-columns:64px 1fr!important;gap:12px!important;align-items:center!important;padding:5px 5px 17px!important}
+#appView .mini-logo img{width:64px!important;height:64px!important;border-radius:17px!important;object-fit:cover!important}
+#appView .nav{display:flex!important;flex-direction:column!important;gap:9px!important;margin-top:18px!important}
+#appView .nav button{width:100%!important;display:flex!important;align-items:center!important;gap:11px!important;justify-content:flex-start!important;text-align:right!important;color:#dce6f2!important;padding:13px 14px!important;border-radius:14px!important;border:1px solid transparent!important;cursor:pointer!important;pointer-events:auto!important;position:relative!important;z-index:2!important;transition:.18s!important}
+#appView .nav button .nav-ico{width:25px;height:25px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.07);color:#efc96f;font-size:14px;flex:0 0 auto}
+#appView .nav button.active,#appView .nav button:hover{background:linear-gradient(135deg,rgba(229,185,91,.20),rgba(255,255,255,.08))!important;border-color:rgba(229,185,91,.28)!important;color:#fff!important;transform:none!important}
+#appView .nav #logoutBtn{margin-top:auto;color:#ffd9dc!important;border-color:rgba(255,125,137,.18)!important}
+.owner-section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.owner-section-title .small{max-width:760px}
+.owner-user-card{background:#fff;border:1px solid #dce5ef;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 8px 22px rgba(11,35,69,.055)}
+.owner-user-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.owner-user-name{font-size:16px;font-weight:800;color:#0a2142}.account-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.meta-pill{background:#f1f5f9;border:1px solid #dce4ed;border-radius:999px;padding:6px 9px;font-size:11px;color:#466079}
+.assign-panel{margin-top:18px;padding:16px;border:1px solid #e3d2ae;border-radius:17px;background:linear-gradient(135deg,#fffaf0,#fff)}
+.assign-panel .assign-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.assign-panel select{min-height:48px}
+.admin-badge{display:inline-flex;align-items:center;gap:6px;background:#0a2345;color:#fff;border:1px solid #d0a95e;border-radius:999px;padding:5px 9px;font-size:11px}
+#ownerPage .grid{gap:18px}#ownerPage .full.card{padding:22px;border-radius:22px}.topbar{position:sticky;top:10px;z-index:20;background:rgba(244,247,251,.92);backdrop-filter:blur(14px);border-radius:16px;padding:12px 14px 16px!important}
+@media(max-width:1050px){#appView{padding-right:0!important}#appView .side{position:relative!important;right:auto!important;top:auto!important;width:100%!important;height:auto!important;margin-bottom:16px!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .nav #logoutBtn{margin-top:0!important}}
+@media(max-width:560px){#appView .nav{grid-template-columns:1fr!important}.assign-panel .assign-row{grid-template-columns:1fr!important}}
+
 </style>
 
 <style id="lextrust-v23-light-theme">
@@ -53,6 +76,29 @@ body:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgb
 #homePage:before{content:"ليكس ترست • شريكك القانوني الموثوق";display:block;margin:0 0 16px;padding:15px 20px;border-radius:18px;background:linear-gradient(105deg,#071a36,#123a66);color:#fff;font-size:18px;font-weight:800;border-right:5px solid #e5b95b;box-shadow:0 14px 28px rgba(7,26,54,.13)}
 #ownerPage .full.card h3,#casesPage h3,#permissionsPage h3{color:#0a2142}.owner-only:not(.hidden){position:relative}.owner-only:not(.hidden):after{content:"OWNER";font-size:8px;color:#efc96f;margin-right:7px}
 @media(max-width:900px){.app{grid-template-columns:1fr}.side{position:relative;height:auto}.mini-logo{justify-content:center}.nav{grid-template-columns:repeat(2,1fr)}.chat-fab{left:14px;bottom:14px}}
+
+/* ===== Lex Trust v2.6 — robust right sidebar & owner workflow ===== */
+#appView{direction:rtl;display:block;max-width:1900px;margin:0 auto;position:relative;padding-right:304px;min-height:calc(100vh - 44px)}
+#appView.hidden{display:none!important}
+#appView .side{position:fixed!important;right:22px!important;left:auto!important;top:22px!important;width:282px!important;height:calc(100vh - 44px)!important;z-index:45!important;padding:16px!important;overflow-y:auto!important;background:linear-gradient(180deg,#071a36 0%,#0b284d 65%,#0e365f 100%)!important;border:1px solid rgba(229,185,91,.26)!important;border-radius:24px!important;box-shadow:0 24px 65px rgba(7,26,54,.22)!important}
+#appView .main{width:100%;min-width:0;padding:4px 8px 36px!important}
+#appView .mini-logo{display:grid!important;grid-template-columns:64px 1fr!important;gap:12px!important;align-items:center!important;padding:5px 5px 17px!important}
+#appView .mini-logo img{width:64px!important;height:64px!important;border-radius:17px!important;object-fit:cover!important}
+#appView .nav{display:flex!important;flex-direction:column!important;gap:9px!important;margin-top:18px!important}
+#appView .nav button{width:100%!important;display:flex!important;align-items:center!important;gap:11px!important;justify-content:flex-start!important;text-align:right!important;color:#dce6f2!important;padding:13px 14px!important;border-radius:14px!important;border:1px solid transparent!important;cursor:pointer!important;pointer-events:auto!important;position:relative!important;z-index:2!important;transition:.18s!important}
+#appView .nav button .nav-ico{width:25px;height:25px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.07);color:#efc96f;font-size:14px;flex:0 0 auto}
+#appView .nav button.active,#appView .nav button:hover{background:linear-gradient(135deg,rgba(229,185,91,.20),rgba(255,255,255,.08))!important;border-color:rgba(229,185,91,.28)!important;color:#fff!important;transform:none!important}
+#appView .nav #logoutBtn{margin-top:auto;color:#ffd9dc!important;border-color:rgba(255,125,137,.18)!important}
+.owner-section-title{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.owner-section-title .small{max-width:760px}
+.owner-user-card{background:#fff;border:1px solid #dce5ef;border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 8px 22px rgba(11,35,69,.055)}
+.owner-user-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap}.owner-user-name{font-size:16px;font-weight:800;color:#0a2142}.account-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.meta-pill{background:#f1f5f9;border:1px solid #dce4ed;border-radius:999px;padding:6px 9px;font-size:11px;color:#466079}
+.assign-panel{margin-top:18px;padding:16px;border:1px solid #e3d2ae;border-radius:17px;background:linear-gradient(135deg,#fffaf0,#fff)}
+.assign-panel .assign-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:end}.assign-panel select{min-height:48px}
+.admin-badge{display:inline-flex;align-items:center;gap:6px;background:#0a2345;color:#fff;border:1px solid #d0a95e;border-radius:999px;padding:5px 9px;font-size:11px}
+#ownerPage .grid{gap:18px}#ownerPage .full.card{padding:22px;border-radius:22px}.topbar{position:sticky;top:10px;z-index:20;background:rgba(244,247,251,.92);backdrop-filter:blur(14px);border-radius:16px;padding:12px 14px 16px!important}
+@media(max-width:1050px){#appView{padding-right:0!important}#appView .side{position:relative!important;right:auto!important;top:auto!important;width:100%!important;height:auto!important;margin-bottom:16px!important}#appView .nav{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important}#appView .nav #logoutBtn{margin-top:0!important}}
+@media(max-width:560px){#appView .nav{grid-template-columns:1fr!important}.assign-panel .assign-row{grid-template-columns:1fr!important}}
+
 </style>
 </head>
 <body>
@@ -109,11 +155,11 @@ body:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgb
   <section id="appView" class="app hidden">
     <aside class="side glass">
       <div class="mini-logo"><img src="/assets/lextrust-logo.jpeg" alt="Lex Trust"><div><strong>LEX TRUST</strong><div class="small">للمحاماة والاستشارات القانونية والتوثيق</div></div></div>
-      <div class="nav">
-        <button class="active" data-view="home">الرئيسية</button>
-        <button data-view="cases">القضايا</button>
-        <button data-view="owner" class="owner-only hidden">لوحة المالك</button>
-        <button id="logoutBtn">تسجيل الخروج</button>
+      <div class="nav" id="mainNav">
+        <button type="button" class="active" data-view="home"><span class="nav-ico">⌂</span><span>الرئيسية</span></button>
+        <button type="button" data-view="cases"><span class="nav-ico">⚖</span><span>القضايا</span></button>
+        <button type="button" data-view="owner" class="owner-only hidden"><span class="nav-ico">◆</span><span>لوحة المالك</span></button>
+        <button type="button" id="logoutBtn"><span class="nav-ico">↪</span><span>تسجيل الخروج</span></button>
       </div>
     </aside>
     <main class="main">
@@ -128,7 +174,11 @@ body:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgb
         </div>
       </div>
       <div id="casesPage" class="page hidden"><div class="glass" style="padding:20px"><h3>القضايا</h3><div id="caseList" class="case-list"></div></div></div>
-      <div id="ownerPage" class="page hidden"><div class="grid"><div class="full card glass"><h3>الحسابات المسجلة والصلاحيات</h3><p class="small">أي شخص يسجل في الموقع يظهر هنا تلقائيًا. لا يوجد طلب صلاحية ظاهر للمستخدم؛ المالك وحده يقرر من يصبح موظفًا وما الصلاحيات التي يحصل عليها.</p><div id="userList" class="small"></div></div><div class="full card glass"><h3>جميع القضايا</h3><div id="ownerCaseList" class="case-list"></div></div><div class="full card glass"><h3>سجل النشاط واللوقات</h3><p class="small">يتضمن تسجيل الحسابات الجديدة، تسجيل الدخول، إنشاء القضايا، وتغييرات الصلاحيات.</p><div id="auditList" class="small"></div></div></div></div>
+      <div id="ownerPage" class="page hidden"><div class="grid">
+        <div class="full card glass"><div class="owner-section-title"><div><h3>المستخدمون والأدمنية</h3><p class="small">كل حساب جديد يظهر هنا تلقائيًا في اللوقات. المالك وحده يحول الحساب إلى أدمن ويحدد صلاحياته؛ لا يوجد زر طلب صلاحيات للمستخدمين.</p></div><span class="admin-badge">إدارة المالك</span></div><div id="userList"></div></div>
+        <div class="full card glass"><div class="owner-section-title"><div><h3>جميع القضايا</h3><p class="small">افتح تفاصيل أي قضية ثم اختر الأدمن المسؤول عنها من القائمة.</p></div></div><div id="ownerCaseList" class="case-list"></div></div>
+        <div class="full card glass"><div class="owner-section-title"><div><h3>سجل النشاط واللوقات</h3><p class="small">تسجيل الحسابات الجديدة، عمليات الدخول، إنشاء القضايا، التعيينات، وتغييرات الصلاحيات.</p></div></div><div id="auditList" class="small"></div></div>
+      </div></div>
     </main>
   </section>
 </div>
@@ -138,7 +188,7 @@ body:before{background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgb
 <div id="chatPanel" class="chat-panel glass hidden"><div class="modal-head"><strong>خدمة العملاء</strong><button class="close" id="chatClose">×</button></div><div class="field"><label>القضية</label><select id="chatCase"></select></div><div id="messages" class="messages"></div><div class="chat-send"><input id="chatInput" placeholder="اكتب رسالتك..."><button id="chatSend" class="btn btn-gold">إرسال</button></div></div>
 <div id="caseModal" class="modal hidden"><div class="modal-box glass"><div class="modal-head"><h3 id="caseModalTitle"></h3><button class="close" id="caseModalClose">×</button></div><div id="caseModalBody"></div></div></div>
 <script>
-const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)]; let me=null,cases=[],config=null,csrfToken='';
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)]; let me=null,cases=[],config=null,csrfToken='',ownerUsers=[];
 const perms=[['view_all_cases','عرض جميع القضايا'],['manage_cases','تعديل حالة القضايا'],['respond_chat','الرد على المحادثات'],['assign_cases','إدارة التعيين'],['manage_users','إدارة المستخدمين'],['view_audit','عرض سجل التدقيق']];
 const permLabel=v=>(perms.find(p=>p[0]===v)||[v,v])[1];
 const esc=v=>String(v??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
@@ -155,17 +205,27 @@ async function showApp(){$('#publicView').classList.add('hidden');$('#authView')
 $('#loginTab').onclick=()=>{$('#loginForm').classList.remove('hidden');$('#registerForm').classList.add('hidden');$('#loginTab').classList.add('active');$('#registerTab').classList.remove('active')};$('#registerTab').onclick=()=>{$('#registerForm').classList.remove('hidden');$('#loginForm').classList.add('hidden');$('#registerTab').classList.add('active');$('#loginTab').classList.remove('active')};
 $('#loginForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/login',{method:'POST',body:JSON.stringify(fd(e.target))});me=j.user;showApp()}catch(x){toast(x.message,true)}};
 $('#registerForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/register',{method:'POST',body:JSON.stringify(fd(e.target))});me=j.user;showApp()}catch(x){toast(x.message,true)}};
-$('#logoutBtn').onclick=async()=>{try{await api('/api/logout',{method:'POST',body:'{}'})}catch{}me=null;csrfToken='';await refreshCsrf();showAuth()};
-$$('.nav button[data-view]').forEach(b=>b.onclick=()=>showPage(b.dataset.view,b));
-function showPage(v,b){$$('.page').forEach(p=>p.classList.add('hidden'));$('#'+v+'Page').classList.remove('hidden');$$('.nav button').forEach(x=>x.classList.remove('active'));b?.classList.add('active');$('#pageTitle').textContent=b?.textContent||'';if(v==='owner')loadOwner()}
+$('#logoutBtn').onclick=async()=>{try{await api('/api/logout',{method:'POST',body:'{}'})}catch{}me=null;cases=[];ownerUsers=[];csrfToken='';await refreshCsrf();showPublic()};
+document.addEventListener('click',e=>{const b=e.target.closest('#mainNav button[data-view]');if(!b)return;e.preventDefault();showPage(b.dataset.view,b)});
+function showPage(v,b){const page=$('#'+v+'Page');if(!page)return;$$('.page').forEach(p=>p.classList.add('hidden'));page.classList.remove('hidden');$$('#mainNav button[data-view]').forEach(x=>x.classList.remove('active'));b?.classList.add('active');$('#pageTitle').textContent=(b?.querySelector('span:last-child')?.textContent||b?.textContent||'').trim();if(v==='owner')loadOwner()}
 async function loadCases(){cases=await api('/api/cases');$('#metricCases').textContent=cases.length;$('#metricActive').textContent=cases.filter(c=>c.status==='قيد المعالجة').length;$('#metricClosed').textContent=cases.filter(c=>c.status==='مغلقة').length;renderCases();renderChatCases()}
 function caseHtml(c){return `<div class="case"><div><strong>القضية #${esc(c.number)}</strong><div>${esc(c.title)}</div><div class="small">${c.assignee?`المسؤول: ${esc(c.assignee.username)}`:'غير مخصصة'}</div></div><div class="case-actions"><button class="case-details-btn" onclick="openCase(${Number(c.id)})">عرض التفاصيل</button><span class="status">${esc(c.status)}</span></div></div>`}
 function renderCases(){$('#caseList').innerHTML=cases.length?cases.map(caseHtml).join(''):'<div class="small">لا توجد قضايا حتى الآن.</div>'}
 $('#newCaseForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/cases',{method:'POST',body:JSON.stringify(fd(e.target))});e.target.reset();toast(`تم إنشاء القضية #${j.case.number}`);await loadCases()}catch(x){toast(x.message,true)}};
-async function loadOwner(){if(me.role!=='owner')return;try{const [us,cs,au]=await Promise.all([api('/api/owner/users'),api('/api/cases'),api('/api/owner/audit')]);$('#userList').innerHTML=us.map(u=>`<div class="case" style="display:block;margin-bottom:10px"><div style="display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><div><b>${esc(u.fullName||u.username)}</b> <span class="status">${u.role==='owner'?'مالك':u.role==='employee'?'موظف':'عميل'}</span><div class="small">@${esc(u.username)} • ${esc(u.contact)} • رقم الحساب: ${esc(u.id)} • سجل: ${new Date(u.createdAt).toLocaleString('ar-SA')}</div></div></div>${u.role!=='owner'?`<div style="margin-top:12px"><div class="field"><label>نوع الحساب</label><select id="userRole-${u.id}"><option value="client" ${u.role==='client'?'selected':''}>عميل</option><option value="employee" ${u.role==='employee'?'selected':''}>موظف</option></select></div><div class="permission-grid" id="userPerms-${u.id}">${perms.map(([v,l])=>`<label><input type="checkbox" value="${esc(v)}" ${(u.permissions||[]).includes(v)?'checked':''}> ${esc(l)}</label>`).join('')}</div><button class="btn btn-gold" style="margin-top:10px" onclick="saveUserPerms(${u.id})">حفظ الصلاحيات</button></div>`:''}</div>`).join('');$('#ownerCaseList').innerHTML=cs.map(caseHtml).join('');const labels={user_registered:'تسجيل حساب جديد',login_success:'تسجيل دخول ناجح',login_failed:'محاولة دخول فاشلة',case_created:'إنشاء قضية جديدة',user_permissions_changed:'تغيير صلاحيات مستخدم',logout:'تسجيل خروج'};$('#auditList').innerHTML=au.slice(0,100).map(a=>`<div style="padding:9px 0;border-bottom:1px solid var(--line)"><b>${esc(a.username||'النظام')}</b> — ${esc(labels[a.action]||a.action)} <span class="small">${new Date(a.createdAt).toLocaleString('ar-SA')}</span></div>`).join('')||'لا توجد سجلات.'}catch(x){toast(x.message,true)}}
-async function resolveReq(id,ok){try{const permissions=ok?[...document.querySelectorAll(`#reqPerms-${id} input:checked`)].map(x=>x.value):[];await api(`/api/owner/permission-requests/${id}/resolve`,{method:'POST',body:JSON.stringify({status:ok?'approved':'rejected',permissions})});toast(ok?'تمت الموافقة':'تم الرفض');loadOwner()}catch(x){toast(x.message,true)}}
+async function loadOwner(){
+  if(me.role!=='owner')return;
+  try{
+    const [us,cs,au]=await Promise.all([api('/api/owner/users'),api('/api/cases'),api('/api/owner/audit')]);
+    ownerUsers=us;
+    $('#userList').innerHTML=us.map(u=>`<div class="owner-user-card"><div class="owner-user-top"><div><div class="owner-user-name">${esc(u.fullName||u.username)}</div><div class="account-meta"><span class="meta-pill">@${esc(u.username)}</span><span class="meta-pill">${esc(u.contact)}</span><span class="meta-pill">رقم الحساب #${esc(u.id)}</span><span class="meta-pill">${u.role==='owner'?'مالك':u.role==='employee'?'أدمن / موظف':'عميل'}</span></div></div>${u.role==='employee'?'<span class="admin-badge">أدمن مفعل</span>':''}</div>${u.role!=='owner'?`<div style="margin-top:14px"><div class="field"><label>نوع الحساب</label><select id="userRole-${u.id}"><option value="client" ${u.role==='client'?'selected':''}>عميل</option><option value="employee" ${u.role==='employee'?'selected':''}>أدمن / موظف</option></select></div><div class="permission-grid" id="userPerms-${u.id}">${perms.map(([v,l])=>`<label><input type="checkbox" value="${esc(v)}" ${(u.permissions||[]).includes(v)?'checked':''}> ${esc(l)}</label>`).join('')}</div><button class="btn btn-gold" style="margin-top:10px" onclick="saveUserPerms(${u.id})">حفظ الحساب والصلاحيات</button></div>`:''}</div>`).join('')||'<div class="small">لا توجد حسابات.</div>';
+    $('#ownerCaseList').innerHTML=cs.length?cs.map(caseHtml).join(''):'<div class="small">لا توجد قضايا.</div>';
+    const labels={user_registered:'تسجيل حساب جديد',login_success:'تسجيل دخول ناجح',login_failed:'محاولة دخول فاشلة',case_created:'إنشاء قضية جديدة',user_permissions_changed:'تغيير صلاحيات مستخدم',case_assigned:'تخصيص قضية لأدمن',case_status_changed:'تغيير حالة قضية',logout:'تسجيل خروج'};
+    $('#auditList').innerHTML=au.slice(0,100).map(a=>`<div style="padding:10px 0;border-bottom:1px solid var(--line)"><b>${esc(a.username||'النظام')}</b> — ${esc(labels[a.action]||a.action)} <span class="small">${new Date(a.createdAt).toLocaleString('ar-SA')}</span></div>`).join('')||'لا توجد سجلات.';
+  }catch(x){toast(x.message,true)}
+}
 async function saveUserPerms(id){try{const permissions=[...document.querySelectorAll(`#userPerms-${id} input:checked`)].map(x=>x.value);const role=$(`#userRole-${id}`)?.value||'client';await api(`/api/owner/users/${id}/permissions`,{method:'POST',body:JSON.stringify({role,permissions:role==='employee'?permissions:[]})});toast('تم حفظ صلاحيات المستخدم');loadOwner()}catch(x){toast(x.message,true)}}
 async function openCase(id){
+  if(me.role==='owner' && !ownerUsers.length){try{ownerUsers=await api('/api/owner/users')}catch{ownerUsers=[]}}
   const c=(me.role==='owner'?(await api('/api/cases')):cases).find(x=>Number(x.id)===Number(id));
   if(!c)return;
   $('#caseModalTitle').textContent=`القضية #${c.number} — ${c.title}`;
@@ -197,7 +257,9 @@ async function openCase(id){
   if(c.ownerNotes?.length)html+=`<h4>ملاحظات داخلية</h4>${c.ownerNotes.map(n=>`<div class="case"><div>${esc(n.text)}</div></div>`).join('')}`;
   if(c.evidence?.length)html+=`<h4>الأدلة والمرفقات</h4>${c.evidence.map(e=>`<div class="case"><a href="${esc(e.url)}" target="_blank" rel="noopener">${esc(e.name)}</a><span class="small">${esc(e.note||'')}</span></div>`).join('')}`;
   if(me.role==='owner'){
-    html+=`<hr style="border-color:#22314a"><div class="field"><label>تخصيص القضية لموظف</label><input id="assignUser" placeholder="اسم المستخدم"><button class="btn btn-gold" onclick="assignCase(${c.id})">تخصيص</button></div><div class="field"><label>تغيير الحالة</label><select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select><button class="btn btn-dark" onclick="setCaseStatus(${c.id})">حفظ الحالة</button></div><div class="field"><label>ملاحظة داخلية (المالك فقط)</label><textarea id="ownerNote"></textarea><button class="btn btn-dark" onclick="addNote(${c.id})">إضافة الملاحظة</button></div><form id="evidenceForm" class="field"><label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label><input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required><input name="note" placeholder="ملاحظة على الملف"><button class="btn btn-dark">رفع الملف</button></form>`;
+    const admins=ownerUsers.filter(u=>u.role==='employee'||u.role==='owner');
+    const adminOptions=admins.map(u=>`<option value="${esc(u.username)}" ${c.assignee&&String(c.assignee.id)===String(u.id)?'selected':''}>${esc(u.fullName||u.username)} — @${esc(u.username)} ${u.role==='owner'?'(المالك)':''}</option>`).join('');
+    html+=`<hr><div class="assign-panel"><div class="assign-row"><div class="field" style="margin:0"><label>تحويل القضية إلى أدمن</label><select id="assignUser"><option value="">اختر الأدمن المسؤول...</option>${adminOptions}</select></div><button class="btn btn-gold" onclick="assignCase(${c.id})">تحويل القضية</button></div><div class="small" style="margin-top:8px">تظهر هنا كل الحسابات التي حولها المالك إلى أدمن / موظف.</div></div><div class="field"><label>تغيير الحالة</label><select id="caseStatus"><option>جديدة</option><option>قيد المعالجة</option><option>بانتظار العميل</option><option>مغلقة</option></select><button class="btn btn-dark" onclick="setCaseStatus(${c.id})">حفظ الحالة</button></div><div class="field"><label>ملاحظة داخلية (المالك فقط)</label><textarea id="ownerNote"></textarea><button class="btn btn-dark" onclick="addNote(${c.id})">إضافة الملاحظة</button></div><form id="evidenceForm" class="field"><label>رفع صورة / PDF (المالك فقط، حد أقصى 15MB)</label><input type="file" name="file" accept="image/jpeg,image/png,image/webp,.pdf" required><input name="note" placeholder="ملاحظة على الملف"><button class="btn btn-dark">رفع الملف</button></form>`;
   }
   $('#caseModalBody').innerHTML=html;
   $('#caseModal').classList.remove('hidden');
@@ -209,7 +271,7 @@ async function openCase(id){
   }
 }
 $('#caseModalClose').onclick=()=>$('#caseModal').classList.add('hidden');
-async function assignCase(id){const username=$('#assignUser').value;try{await api(`/api/cases/${id}/assign`,{method:'POST',body:JSON.stringify({username})});toast('تم تخصيص القضية');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
+async function assignCase(id){const username=$('#assignUser')?.value||'';if(!username)return toast('اختر الأدمن أولاً',true);try{await api(`/api/cases/${id}/assign`,{method:'POST',body:JSON.stringify({username})});toast('تم تحويل القضية للأدمن');$('#caseModal').classList.add('hidden');await loadCases();await loadOwner()}catch(x){toast(x.message,true)}}
 async function setCaseStatus(id){try{await api(`/api/cases/${id}/status`,{method:'POST',body:JSON.stringify({status:$('#caseStatus').value})});toast('تم تحديث الحالة');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
 async function addNote(id){const text=$('#ownerNote').value;try{await api(`/api/cases/${id}/note`,{method:'POST',body:JSON.stringify({text})});toast('تمت إضافة الملاحظة');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
 function renderChatCases(){const s=$('#chatCase');s.innerHTML=cases.map(c=>`<option value="${Number(c.id)}">#${esc(c.number)} — ${esc(c.title)}</option>`).join('');if(cases.length)loadMessages(cases[0].id);else $('#messages').innerHTML='<div class="small">لا توجد قضية لبدء المحادثة.</div>'}
