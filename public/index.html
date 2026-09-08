@@ -209,7 +209,7 @@ $('#logoutBtn').onclick=async()=>{try{await api('/api/logout',{method:'POST',bod
 document.addEventListener('click',e=>{const b=e.target.closest('#mainNav button[data-view]');if(!b)return;e.preventDefault();showPage(b.dataset.view,b)});
 function showPage(v,b){const page=$('#'+v+'Page');if(!page)return;$$('.page').forEach(p=>p.classList.add('hidden'));page.classList.remove('hidden');$$('#mainNav button[data-view]').forEach(x=>x.classList.remove('active'));b?.classList.add('active');$('#pageTitle').textContent=(b?.querySelector('span:last-child')?.textContent||b?.textContent||'').trim();if(v==='owner')loadOwner()}
 async function loadCases(){cases=await api('/api/cases');$('#metricCases').textContent=cases.length;$('#metricActive').textContent=cases.filter(c=>c.status==='قيد المعالجة').length;$('#metricClosed').textContent=cases.filter(c=>c.status==='مغلقة').length;renderCases();renderChatCases()}
-function caseHtml(c){return `<div class="case"><div><strong>القضية #${esc(c.number)}</strong><div>${esc(c.title)}</div><div class="small">${c.assignee?`المسؤول: ${esc(c.assignee.username)}`:'غير مخصصة'}</div></div><div class="case-actions"><button class="case-details-btn" onclick="openCase(${Number(c.id)})">عرض التفاصيل</button><span class="status">${esc(c.status)}</span></div></div>`}
+function caseHtml(c){return `<div class="case"><div><strong>القضية #${esc(c.number)}</strong><div>${esc(c.title)}</div><div class="small">${c.assignee?`المسؤول: ${esc(c.assignee.username)}`:'غير مخصصة'}</div></div><div class="case-actions"><button type="button" class="case-details-btn" data-case-id="${Number(c.id)}">عرض التفاصيل</button><span class="status">${esc(c.status)}</span></div></div>`}
 function renderCases(){$('#caseList').innerHTML=cases.length?cases.map(caseHtml).join(''):'<div class="small">لا توجد قضايا حتى الآن.</div>'}
 $('#newCaseForm').onsubmit=async e=>{e.preventDefault();try{const j=await api('/api/cases',{method:'POST',body:JSON.stringify(fd(e.target))});e.target.reset();toast(`تم إنشاء القضية #${j.case.number}`);await loadCases()}catch(x){toast(x.message,true)}};
 async function loadOwner(){
@@ -225,9 +225,13 @@ async function loadOwner(){
 }
 async function saveUserPerms(id){try{const permissions=[...document.querySelectorAll(`#userPerms-${id} input:checked`)].map(x=>x.value);const role=$(`#userRole-${id}`)?.value||'client';await api(`/api/owner/users/${id}/permissions`,{method:'POST',body:JSON.stringify({role,permissions:role==='employee'?permissions:[]})});toast('تم حفظ صلاحيات المستخدم');loadOwner()}catch(x){toast(x.message,true)}}
 async function openCase(id){
-  if(me.role==='owner' && !ownerUsers.length){try{ownerUsers=await api('/api/owner/users')}catch{ownerUsers=[]}}
-  const c=(me.role==='owner'?(await api('/api/cases')):cases).find(x=>Number(x.id)===Number(id));
-  if(!c)return;
+  try{
+    if(!me)return toast('يجب تسجيل الدخول أولاً',true);
+    if(me.role==='owner' && !ownerUsers.length){try{ownerUsers=await api('/api/owner/users')}catch{ownerUsers=[]}}
+    let source=cases;
+    if(me.role==='owner') source=await api('/api/cases');
+    const c=source.find(x=>Number(x.id)===Number(id));
+    if(!c) return toast('تعذر العثور على تفاصيل القضية',true);
   $('#caseModalTitle').textContent=`القضية #${c.number} — ${c.title}`;
   const created=c.createdAt?new Date(c.createdAt).toLocaleString('ar-SA'):'—';
   const updated=c.updatedAt?new Date(c.updatedAt).toLocaleString('ar-SA'):'—';
@@ -266,11 +270,20 @@ async function openCase(id){
   if(me.role==='owner'){
     setTimeout(()=>{
       if($('#caseStatus'))$('#caseStatus').value=c.status;
-      $('#evidenceForm').onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);try{await api(`/api/cases/${c.id}/evidence`,{method:'POST',body:f});toast('تم رفع الملف');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
+      const evidenceForm=$('#evidenceForm');
+      if(evidenceForm) evidenceForm.onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target);try{await api(`/api/cases/${c.id}/evidence`,{method:'POST',body:f});toast('تم رفع الملف');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
     },0)
   }
+  }catch(x){console.error('openCase failed',x);toast(x?.message||'تعذر فتح تفاصيل القضية',true)}
 }
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.case-details-btn[data-case-id]');
+  if(!btn)return;
+  e.preventDefault();e.stopPropagation();
+  openCase(Number(btn.dataset.caseId));
+});
 $('#caseModalClose').onclick=()=>$('#caseModal').classList.add('hidden');
+$('#caseModal').addEventListener('click',e=>{if(e.target.id==='caseModal')$('#caseModal').classList.add('hidden')});
 async function assignCase(id){const username=$('#assignUser')?.value||'';if(!username)return toast('اختر الأدمن أولاً',true);try{await api(`/api/cases/${id}/assign`,{method:'POST',body:JSON.stringify({username})});toast('تم تحويل القضية للأدمن');$('#caseModal').classList.add('hidden');await loadCases();await loadOwner()}catch(x){toast(x.message,true)}}
 async function setCaseStatus(id){try{await api(`/api/cases/${id}/status`,{method:'POST',body:JSON.stringify({status:$('#caseStatus').value})});toast('تم تحديث الحالة');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
 async function addNote(id){const text=$('#ownerNote').value;try{await api(`/api/cases/${id}/note`,{method:'POST',body:JSON.stringify({text})});toast('تمت إضافة الملاحظة');$('#caseModal').classList.add('hidden');await loadCases();loadOwner()}catch(x){toast(x.message,true)}}
